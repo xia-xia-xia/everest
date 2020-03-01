@@ -1,0 +1,117 @@
+<view>
+  <view class="top-container flex-row">
+    <view class="tv">
+      <text class="topic">{{planInfo.title}}</text>
+      <view wx:if="{{planInfo.status==4}}">
+        <van-tag plain type="success">YOU</van-tag>
+      </view>
+    </view>
+    <view class="top">
+      <image class="card-avatar" src="{{planInfo.avartarUrl}}"></image>
+      <text class="card-name">{{planInfo.nickName}}</text>
+      <view wx:if="{{planInfo.status==2}}">
+        <van-tag round>未开始</van-tag>
+      </view>
+      <view wx:elif="{{planInfo.status==3}}">
+        <van-tag mark type="success">进行中</van-tag>
+      </view>
+      <view wx:elif="{{planInfo.status==4}}">
+        <van-tag round type="success">已完成</van-tag>
+      </view>
+      <view wx:elif="{{planInfo.status==5}}">
+        <van-tag round type="danger">未完成</van-tag>
+      </view>
+      <view wx:if="{{planInfo.tag&&planInfo.status==3}}">
+        <van-button round type="danger" size="small" class="done" bindtap="over">done it</van-button>
+      </view>
+    </view>
+    <view class="time-cha">
+      <text class="card-time">发布于:{{planInfo.ctimeForShow}}</text>
+      <view wx:if="{{planInfo.youTag}}">
+        <view wx:if="{{!planInfo.challengeTag}}" bindtap="challenge">
+          <image class="view" src="/images/pk.png"></image>
+        </view>
+        <view wx:if="{{planInfo.challengeTag}}">
+          <image class="view" src="/images/pk-active.png"></image>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="plan-intro">
+    <text class="intro-content">{{planInfo.content}}</text>
+  </view>
+  <view class="plan-meta" wx:if="{{!planInfo.youTag}}">
+    <view class="meta-info">
+      <view wx:for="{{planInfo.zanAvartarUrls}}">
+        <view wx:if="{{index<5}}">
+          <image class="guan-avatar" src="{{item}}"></image>
+        </view>
+      </view>
+      <view class="have">
+        <text class="other-meta">已有{{planInfo.seeNum}}人围观</text>
+        <image src="/images/enter.png" class="more-user" bindtap="moreguan"></image>
+      </view>
+    </view>
+  </view>
+  <view class="plan-meta" wx:if="{{planInfo.youTag}}">
+    <view class="meta-info">
+      <view wx:for="{{planInfo.challengeAvartarUrls}}">
+        <view wx:if="{{index<5}}">
+          <image class="guan-avatar" src="{{item}}"></image>
+        </view>
+      </view>
+      <view class="have">
+        <text class="other-meta">已有{{planInfo.challengeNum}}人挑战</text>
+        <image src="/images/enter.png" class="more-user" bindtap="moreguan"></image>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <view wx:if="{{!planInfo.youTag}}"> 
+      <view wx:if="{{planInfo.seeTag}}">
+        <view class="bt-look">
+          <image src="/images/icon-views-active.png" class="view"></image>
+          <text class="other-meta1">围观</text>
+        </view>
+      </view>
+      <view wx:elif="{{!planInfo.seeTag}}">
+        <view class="bt-look" bindtap="guan">
+          <image src="/images/icon-views.png" class="view"></image>
+          <text class="other-meta">围观</text>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{planInfo.youTag}}"> 
+      <view wx:if="{{planInfo.seeTag}}">
+        <view class="bt-look">
+          <image src="/images/icon-views-active.png" class="view"></image>
+          <text class="other-meta1">围观{{planInfo.seeNum}}</text>
+        </view>
+      </view>
+      <view wx:elif="{{!planInfo.seeTag}}">
+        <view class="bt-look" bindtap="guan">
+          <image src="/images/icon-views.png" class="view"></image>
+          <text class="other-meta">围观{{planInfo.seeNum}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{planInfo.status==4}}">
+      <view wx:if="{{planInfo.zanTag}}">
+        <view class="bt-look">
+          <image src="/images/icon-good-active.png" class="view"></image>
+          <text class="other-meta1">点赞{{planInfo.zanNum}}</text>
+        </view>
+      </view>
+      <view wx:elif="{{!planInfo.zanTag}}">
+        <view class="bt-look" bindtap="zan">
+          <image src="/images/icon-good.png" class="view"></image>
+          <text class="other-meta">点赞{{planInfo.zanNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<button open-type="share">邀请好友一起完成计划</button>

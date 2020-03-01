@@ -1,0 +1,108 @@
+.top-container {
+  padding: 20rpx;
+}
+.tv{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.topic{
+  font-size: 60rpx;
+  font-family: 华文新魏;
+}
+.top{
+  display: flex;
+  flex-flow: row;
+  align-items: center
+}
+.card-avatar {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius:100%;
+  margin-right: 12rpx
+}
+.time-cha{
+  display: flex;
+  justify-content: space-between;
+}
+.card-time {
+  font-size: 26rpx;
+  color: #8999a5;
+  margin-top: 8rpx;
+}
+.card-name {
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 26rpx;
+  margin-top: 8rpx;
+  margin-right: 100rpx;
+}
+.done{
+  margin-left: 300rpx;
+}
+.plan-intro {
+  margin-bottom: 40rpx;
+  padding: 20rpx;
+}
+.intro-content {
+  font-size: 35rpx;
+  line-height: 1.5;
+  text-align: justify
+}
+.plan-meta {
+  position: relative;
+  padding: 20rpx;
+  margin: 20rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 1px 2px #8999a5;
+}
+.meta-info {
+  margin-right: 20rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+.guan-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius:100%;
+  margin-right: 12rpx;
+  border:1px solid #8999a5;
+}
+.have{
+  display: flex;
+  flex-flow: row;
+}
+.other-meta {
+  padding-top: 10rpx;
+  color: #8999a5;
+  font-size: 30rpx;
+}
+.more-user{
+  height: 35rpx;
+  width: 35rpx;
+  padding: 12rpx;
+}
+.bottom{
+  display: flex;
+  flex-flow: row;
+  padding: 20rpx;
+  justify-content: space-between;
+}
+.bt-look{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 10rpx;
+  border-radius: 20rpx;
+  box-shadow: 2px 2px 2px rgb(5, 5, 5);
+}
+.view {
+  width: 60rpx;
+  height: 60rpx;
+}
+.other-meta1{
+  padding-top: 10rpx;
+  color: #03b3ee;
+  font-size: 30rpx;
+}
