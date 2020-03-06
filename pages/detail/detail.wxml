@@ -3,7 +3,7 @@
     <view class="tv">
       <text class="topic">{{planInfo.title}}</text>
       <view wx:if="{{planInfo.status==4}}">
-        <van-tag plain type="success">YOU</van-tag>
+        <van-tag plain type="success">HOT</van-tag>
       </view>
     </view>
     <view class="top">
