@@ -4,6 +4,7 @@
     "pages/proxy/proxy",
     "pages/square/square",
     "pages/you/you",
+    "pages/talk/talk",
     "pages/user/user",
     "pages/detail/detail",
     "pages/create/create",
@@ -33,6 +34,12 @@
         "pagePath": "pages/you/you",
         "iconPath": "images/iconfont-you.png",
         "selectedIconPath": "images/iconfont-you-active.png"
+      },
+      {
+      "text": "我的消息",
+      "pagePath": "pages/talk/talk",
+      "iconPath": "images/iconfont-list.png",
+      "selectedIconPath": "images/iconfont-list-active.png"
       },
       {
         "text": "个人中心",
