@@ -3,6 +3,9 @@
     <view class="search-bar-warper">
       <icon bindtap="searchClickEvent"  type="search" size="20"/>
       <input type="text" bindinput="searchInputEvent" placeholder="请输入搜索内容"></input>
+      <!-- <van-dropdown-menu>
+        <van-dropdown-item v-model="value1" :options="option1" />
+      </van-dropdown-menu> -->
     </view>
   </view>
   <view wx:for="{{planList}}">

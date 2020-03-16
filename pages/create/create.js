@@ -2,6 +2,30 @@ const app = getApp();
 var util = require("../../utils/util")
 Page({
   data: {
+    array: ['计算机类', '医学类', '工程类', '金融类','管理类'],
+    objectArray: [
+      {
+        id: 0,
+        name: '计算机类'
+      },
+      {
+        id: 1,
+        name: '医学类'
+      },
+      {
+        id: 2,
+        name: '工程类'
+      },
+      {
+        id: 3,
+        name: '金融类'
+      },
+      {
+        id: 4,
+        name: '管理类'
+      }
+    ],
+    index: 0,
     userInfo: null,
     token: null,
     type: 2,
@@ -101,7 +125,13 @@ Page({
         return err
       }
     )
-  }
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发生选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
 
 
 

@@ -16,8 +16,9 @@
     <switch class="switch" checked bindchange="switchChange"></switch>
   </view>
   <view class="other">
-    <text class="other1">书籍所属类别：</text>
-    <switch class="switch" checked bindchange="switchChange"></switch>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="other1">所属类型：{{array[index]}} </view>
+    </picker>
   </view>
   <view>
     <text class="other1">计划开始时间：{{beginTimeForShow}}</text>
