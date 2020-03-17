@@ -6,9 +6,11 @@ Page({
    */
   data: {
     /*option1: [
-      { text: "全部商品", value: 0 },
-      { text: "新款商品", value: 1 },
-      { text: "活动商品", value: 2 }
+      { text: "计算机类", value: 0 },
+      { text: "医学类", value: 1 },
+      { text: "工程类", value: 2 },
+      { text: "金融类", value: 3 },
+      { text: "管理类", value: 4 },
     ],
     value1: 0,*/
     token: null,
@@ -46,7 +48,7 @@ Page({
       pageSize: that.data.pageSize,
       token: this.data.token,
       types: [2, 4],
-      status: [2, 3, 4, 5]
+      //status: [2, 3, 4, 5]
     }
     return util.requestApi(`${app.globalReqUrl}/plan/apple/listPlan`, paramdata).then(
       res => {

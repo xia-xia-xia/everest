@@ -1,6 +1,6 @@
 <form bindsubmit="onSubmit" bindreset="">
   <view class='book-title'>
-    <input name="title" placeholder-class="placeholder" placeholder="输入书籍名称" value="{{item.value.title}}" />
+    <input name="book" placeholder-class="placeholder" placeholder="输入书籍名称" value="{{item.value.book}}" />
   </view>
   <view class='title'>
     <input name="title" placeholder-class="placeholder" placeholder="输入感悟标题" value="{{item.value.title}}" />
@@ -17,16 +17,8 @@
   </view>
   <view class="other">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="other1">所属类型：{{array[index]}} </view>
+      <view class="other1">选择所属分类  -------------------------> {{array[index]}} </view>
     </picker>
-  </view>
-  <view>
-    <text class="other1">计划开始时间：{{beginTimeForShow}}</text>
-    <van-datetime-picker type="datetime" value="{{ beginTime }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="beginTimeInput" />
-  </view>
-  <view>
-    <text class="other1">预计完成时间：{{ endTimeForShow }}</text>
-    <van-datetime-picker type="datetime" value="{{ endTime }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="endTimeInput" />
   </view>
   <view class="bottom">
     <button formType="submit" class='btn success'>发布</button>

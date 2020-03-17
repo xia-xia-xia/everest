@@ -2,14 +2,15 @@
   <view class="top-container flex-row">
     <view class="tv">
       <text class="topic">{{planInfo.title}}</text>
-      <view wx:if="{{planInfo.status==4}}">
+      <!-- <view wx:if="{{planInfo.status==4}}"> -->
+      <view>
         <van-tag plain type="success">HOT</van-tag>
       </view>
     </view>
     <view class="top">
       <image class="card-avatar" src="{{planInfo.avartarUrl}}"></image>
       <text class="card-name">{{planInfo.nickName}}</text>
-      <view wx:if="{{planInfo.status==2}}">
+      <!-- <view wx:if="{{planInfo.status==2}}">
         <van-tag round>未开始</van-tag>
       </view>
       <view wx:elif="{{planInfo.status==3}}">
@@ -23,7 +24,7 @@
       </view>
       <view wx:if="{{planInfo.tag&&planInfo.status==3}}">
         <van-button round type="danger" size="small" class="done" bindtap="over">done it</van-button>
-      </view>
+      </view> -->
     </view>
     <view class="time-cha">
       <text class="card-time">发布于:{{planInfo.ctimeForShow}}</text>
@@ -98,7 +99,8 @@
       </view>
     </view>
 
-    <view wx:if="{{planInfo.status==4}}">
+    <!-- <view wx:if="{{planInfo.status==4}}"> -->
+    <view>
       <view wx:if="{{planInfo.zanTag}}">
         <view class="bt-look">
           <image src="/images/icon-good-active.png" class="view"></image>
