@@ -29,7 +29,7 @@ Page({
     userInfo: null,
     token: null,
     type: 2,
-    //booktype:''
+    bookType:null
   },
   switchChange: function(e) {
     if (e.detail.value) {
@@ -64,7 +64,7 @@ Page({
   },
   onSubmit: function(e) {
     console.log(e.detail.value);
-    console.log('picker选择携带值为：', this.data.booktype);
+    console.log('picker选择携带值为：', this.data.bookType);
     if (e.detail.value.book.length == 0 || e.detail.value.book.length > 20) {
       wx.showToast({
         title: '书名20字以内哦',
@@ -92,7 +92,7 @@ Page({
       book: e.detail.value.book,
       title: e.detail.value.title,
       content: e.detail.value.content,
-      booktype: this.data.booktype,
+      bookType: this.data.bookType,
     }
     return util.requestApi(`${app.globalReqUrl}/plan/apple/addPlan`, paramdata).then(
       res => {
@@ -112,7 +112,7 @@ Page({
     console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
     this.setData({
       index: e.detail.value,
-      booktype: this.data.array[e.detail.value]
+      bookType: this.data.array[e.detail.value]
     })
   },
 
