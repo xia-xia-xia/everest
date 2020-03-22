@@ -108,8 +108,8 @@ Page({
     )
   },
   bindPickerChange: function (e) {
-    console.log('picker发生选择改变，携带下标为', e.detail.value)
-    console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
+    //console.log('picker发生选择改变，携带下标为', e.detail.value)
+    //console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
     this.setData({
       index: e.detail.value,
       bookType: this.data.array[e.detail.value]
