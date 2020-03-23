@@ -1,48 +1,46 @@
 <view>
   <view class="top-container flex-row">
+    <!-- 第一行 -->
     <view class="tv">
       <text class="topic">{{planInfo.title}}</text>
-      <!-- <view wx:if="{{planInfo.status==4}}"> -->
-      <view>
+      <view wx:if="{{planInfo.type==4}}">
         <van-tag plain type="success">HOT</van-tag>
       </view>
     </view>
+    <!-- 第二行 -->
+    <view class="tv">
+      <text class="book-topic"> 推荐读物：{{planInfo.book}}</text>
+    </view>
+    <!-- 第三行 -->
     <view class="top">
       <image class="card-avatar" src="{{planInfo.avartarUrl}}"></image>
       <text class="card-name">{{planInfo.nickName}}</text>
-      <!-- <view wx:if="{{planInfo.status==2}}">
-        <van-tag round>未开始</van-tag>
+      <view wx:if="{{planInfo.bookType=='计算机类'}}" class="btype">
+        <van-tag mark type="success">计算机类</van-tag>
       </view>
-      <view wx:elif="{{planInfo.status==3}}">
-        <van-tag mark type="success">进行中</van-tag>
+      <view wx:if="{{planInfo.bookType=='医学类'}}" class="btype">
+        <van-tag mark type="success">医学类</van-tag>
       </view>
-      <view wx:elif="{{planInfo.status==4}}">
-        <van-tag round type="success">已完成</van-tag>
+      <view wx:if="{{planInfo.bookType=='工程类'}}" class="btype">
+        <van-tag mark type="success">工程类</van-tag>
       </view>
-      <view wx:elif="{{planInfo.status==5}}">
-        <van-tag round type="danger">未完成</van-tag>
+      <view wx:if="{{planInfo.bookType=='金融类'}}" class="btype">
+        <van-tag mark type="success">金融类</van-tag>
       </view>
-      <view wx:if="{{planInfo.tag&&planInfo.status==3}}">
-        <van-button round type="danger" size="small" class="done" bindtap="over">done it</van-button>
-      </view> -->
+      <view wx:if="{{planInfo.bookType=='管理类'}}" class="btype">
+        <van-tag mark type="success">管理类</van-tag>
+      </view>
     </view>
+    <!-- 第四行 -->
     <view class="time-cha">
       <text class="card-time">发布于:{{planInfo.ctimeForShow}}</text>
-      <view wx:if="{{planInfo.youTag}}">
-        <view wx:if="{{!planInfo.challengeTag}}" bindtap="challenge">
-          <image class="view" src="/images/pk.png"></image>
-        </view>
-        <view wx:if="{{planInfo.challengeTag}}">
-          <image class="view" src="/images/pk-active.png"></image>
-        </view>
-      </view>
     </view>
-
   </view>
 
   <view class="plan-intro">
     <text class="intro-content">{{planInfo.content}}</text>
   </view>
+
   <view class="plan-meta" wx:if="{{!planInfo.youTag}}">
     <view class="meta-info">
       <view wx:for="{{planInfo.zanAvartarUrls}}">

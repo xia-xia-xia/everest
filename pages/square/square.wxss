@@ -48,6 +48,9 @@
   font-size: 25rpx;
   margin: 8rpx;
 }
+.btype{
+  margin-left: 350rpx;
+}
 .middle-container {
   padding: 10rpx;
   border-bottom: 1rpx solid #e1e1e1;

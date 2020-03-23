@@ -55,69 +55,7 @@ Page({
       }
     )
   },
-  //挑战
-  challenge: function() {
-    if (this.data.planInfo.userId == this.data.userInfo.id) {
-      wx.showToast({
-        title: '不能挑战自己的计划哦～',
-        duration: 3000
-      })
-
-      return;
-    }
-
-    let paramdata = {
-      token: this.data.token,
-      planId: this.data.planInfo.id,
-    }
-    console.log(paramdata);
-    return util.requestApi(`${app.globalReqUrl}/plan/apple/challengePlan`, paramdata).then(
-      res => {
-        wx.switchTab({
-          url: '/pages/square/square'
-        })
-        return res.data
-      },
-      err => {
-        console.log('error', err)
-        return err
-      }
-    )
-  },
-  //done it按钮
-  over: function(e) {
-    var that = this;
-    wx.showModal({
-      title: '提示',
-      content: '您确定已完成该计划了吗？不要欺骗自己吆~',
-      confirmText: "已完成",
-      cancelText: "再努力",
-      success(res) {
-        if (res.confirm) {
-          let paramdata = {
-            token: that.data.token,
-            planId: that.data.planInfo.id,
-          }
-          return util.requestApi(`${app.globalReqUrl}/plan/apple/donePlan`, paramdata).then(
-            res => {
-              that.setData({
-                planInfo: res.data
-              });
-              return res.data;
-            },
-            err => {
-              console.log('error', err)
-              return err;
-            }
-          )
-        }
-      }
-    })
-  },
-  //更多围观用户展示
-  moreguan: function() {
-
-  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -209,4 +147,67 @@ Page({
       }
     }
   },
+  //挑战
+  /*challenge: function () {
+    if (this.data.planInfo.userId == this.data.userInfo.id) {
+      wx.showToast({
+        title: '不能挑战自己的计划哦～',
+        duration: 3000
+      })
+
+      return;
+    }
+
+    let paramdata = {
+      token: this.data.token,
+      planId: this.data.planInfo.id,
+    }
+    console.log(paramdata);
+    return util.requestApi(`${app.globalReqUrl}/plan/apple/challengePlan`, paramdata).then(
+      res => {
+        wx.switchTab({
+          url: '/pages/square/square'
+        })
+        return res.data
+      },
+      err => {
+        console.log('error', err)
+        return err
+      }
+    )
+  },
+  //done it按钮
+  over: function (e) {
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '您确定已完成该计划了吗？不要欺骗自己吆~',
+      confirmText: "已完成",
+      cancelText: "再努力",
+      success(res) {
+        if (res.confirm) {
+          let paramdata = {
+            token: that.data.token,
+            planId: that.data.planInfo.id,
+          }
+          return util.requestApi(`${app.globalReqUrl}/plan/apple/donePlan`, paramdata).then(
+            res => {
+              that.setData({
+                planInfo: res.data
+              });
+              return res.data;
+            },
+            err => {
+              console.log('error', err)
+              return err;
+            }
+          )
+        }
+      }
+    })
+  },
+  //更多围观用户展示
+  moreguan: function () {
+
+  },*/
 })

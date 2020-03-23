@@ -9,6 +9,10 @@
 .topic{
   font-size: 60rpx;
   font-family: 华文新魏;
+  font-weight: bold;
+}
+.book-topic{
+  font-size: 30rpx;
 }
 .top{
   display: flex;
@@ -32,13 +36,13 @@
 }
 .card-name {
   color: #00bfff;
-  font-weight: bold;
   font-size: 26rpx;
+  font-family: 幼圆;
   margin-top: 8rpx;
   margin-right: 100rpx;
 }
-.done{
-  margin-left: 300rpx;
+.btype{
+  margin-left: 350rpx;
 }
 .plan-intro {
   margin-bottom: 40rpx;
