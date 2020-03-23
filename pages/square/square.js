@@ -47,8 +47,7 @@ Page({
       pageNo: pageNo || that.data.pageNo,
       pageSize: that.data.pageSize,
       token: this.data.token,
-      types: [2, 4],
-      //status: [2, 3, 4, 5]
+      types: [2],
     }
     return util.requestApi(`${app.globalReqUrl}/plan/apple/listPlan`, paramdata).then(
       res => {

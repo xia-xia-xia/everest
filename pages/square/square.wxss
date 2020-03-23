@@ -20,6 +20,11 @@
 .top-container {
   padding: 10rpx;
 }
+.top-three{
+  display: flex;
+  flex-flow: row;
+  align-items: center
+}
 .card-avatar {
   width: 40rpx;
   height: 40rpx;
@@ -47,9 +52,6 @@
   font-weight: bold;
   font-size: 25rpx;
   margin: 8rpx;
-}
-.btype{
-  margin-left: 350rpx;
 }
 .middle-container {
   padding: 10rpx;
