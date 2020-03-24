@@ -93,6 +93,10 @@
   padding: 20rpx;
   justify-content: space-between;
 }
+.relation-show{
+  display:flex;
+  justify-content: space-between;
+}
 .bt-look{
   display: flex;
   flex-flow: row;

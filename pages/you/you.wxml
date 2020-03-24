@@ -36,9 +36,9 @@
       </view>
       
       <view class="bottom-container">
-        <text class="bottom-tool-text">围观：{{item.seeNum}} </text>
+        <text class="bottom-tool-text">关注作者：{{item.seeNum}} </text>
+        <text class="bottom-tool-text">收藏：{{item.collectNum}}  </text>
         <text class="bottom-tool-text">点赞：{{item.zanNum}}  </text>
-        <text class="bottom-tool-text">挑战：{{item.challengeNum}}  </text>
       </view>
     </view>
   </view>
