@@ -71,13 +71,13 @@
     <view wx:if="{{!planInfo.youTag}}" class="relation-show"> 
       <view wx:if="{{planInfo.collectTag}}">
         <view class="bt-look">
-          <image src="/images/icon-views-active.png" class="view"></image>
+          <image src="/images/icon-star-active.png" class="view"></image>
           <text class="other-meta1">收藏</text>
         </view>
       </view>
       <view wx:elif="{{!planInfo.collectTag}}">
         <view class="bt-look" bindtap="collection">
-          <image src="/images/icon-views.png" class="view"></image>
+          <image src="/images/icon-star.png" class="view"></image>
           <text class="other-meta">收藏</text>
         </view>
       </view>
@@ -109,13 +109,13 @@
       </view>
       <view wx:if="{{planInfo.collectTag}}">
         <view class="bt-look">
-          <image src="/images/icon-good-active.png" class="view"></image>
+          <image src="/images/icon-star-active.png" class="view"></image>
           <text class="other-meta1">收藏{{planInfo.collectNum}}</text>
         </view>
       </view>
       <view wx:elif="{{!planInfo.collectTag}}">
         <view class="bt-look" bindtap="collection">
-          <image src="/images/icon-good.png" class="view"></image>
+          <image src="/images/icon-star.png" class="view"></image>
           <text class="other-meta">收藏{{planInfo.collectNum}}</text>
         </view>
       </view>
@@ -134,5 +134,5 @@
     </view>
   </view>
 
-  <button open-type="share">邀请好友一起完成计划</button>
 </view>
+<button open-type="share">邀请好友一起完成计划</button>
