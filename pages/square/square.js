@@ -5,7 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    option1: [
+    array: ['计算机类', '医学类', '工程类', '金融类', '管理类'],
+    objectArray: [
+      {id: 0,name: '计算机类'},
+      {id: 1,name: '医学类'},
+      {id: 2,name: '工程类'},
+      {id: 3,name: '金融类'},
+      {id: 4,name: '管理类'}
+    ],
+    index: 0,
+    /*option1: [
       { text: "全部类别", value: 0 },
       { text: "计算机类", value: 1 },
       { text: "医学类", value: 2 },
@@ -13,7 +22,7 @@ Page({
       { text: "金融类", value: 4 },
       { text: "管理类", value: 5 },
     ],
-    value1: 0,
+    value1: 0,*/
     token: null,
     total: null,
     planList: [],
@@ -138,7 +147,10 @@ Page({
   },
   //搜索输入框输入取值
   searchInputEvent: function (e) {
-    this.setData({ searchKey: e.detail.value });
+    //console.log('搜索框输入为：',e.detail.value)
+    this.setData({ 
+      searchKey: e.detail.value 
+    });
   },
 
   //搜索按钮点击事件
@@ -146,14 +158,25 @@ Page({
     if (!this.data.searchKey) {
       return;
     }
-    this.setData({ pageIndex: 0, pageData: [] });
+    this.setData({ 
+      pageIndex: 0, pageData: [] 
+    });
     requestData.call(this);
   },
-  kindChange: function (e) {
-    console.log('选择改变，携带下标为', e.detail.value)
-    //console.log('选择改变，携带值为', this.data.options[e.detail.value])
+  //筛选类别
+  bindPickerChange: function (e) {
+    console.log('picker发生选择改变，携带下标为', e.detail.value)
+    //console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
     this.setData({
-      values: e.detail.value,
+      index: e.detail.value,
+      //bookType: this.data.array[e.detail.value]
     })
   },
+  /*kindChange: function (e) {
+    console.log('选择改变，携带下标为', e.detail.value)
+    //console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
+    this.setData({
+      value1: e.detail.value,
+    })
+  },*/
 })

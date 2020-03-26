@@ -1,8 +1,11 @@
 .search-bar{
   width:100%;
   height:60rpx;
+  display: flex;
+  justify-content: space-between
 }
 .search-bar-warper{
+  width: 85%;
   background:#eeeeee;
   height:60rpx;
   margin:0 15rpx;
@@ -10,6 +13,10 @@
   padding-left: 20rpx;
   align-items: center;
   display: flex;
+}
+.seek{
+  width: 15%;
+  margin: 10rpx;
 }
 .square-container {
   background-color: white;
