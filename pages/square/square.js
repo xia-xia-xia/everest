@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    /*option1: [
-      { text: "计算机类", value: 0 },
-      { text: "医学类", value: 1 },
-      { text: "工程类", value: 2 },
-      { text: "金融类", value: 3 },
-      { text: "管理类", value: 4 },
+    option1: [
+      { text: "全部类别", value: 0 },
+      { text: "计算机类", value: 1 },
+      { text: "医学类", value: 2 },
+      { text: "工程类", value: 3 },
+      { text: "金融类", value: 4 },
+      { text: "管理类", value: 5 },
     ],
-    value1: 0,*/
+    value1: 0,
     token: null,
     total: null,
     planList: [],
@@ -147,5 +148,12 @@ Page({
     }
     this.setData({ pageIndex: 0, pageData: [] });
     requestData.call(this);
+  },
+  kindChange: function (e) {
+    console.log('选择改变，携带下标为', e.detail.value)
+    //console.log('选择改变，携带值为', this.data.options[e.detail.value])
+    this.setData({
+      values: e.detail.value,
+    })
   },
 })

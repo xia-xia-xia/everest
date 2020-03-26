@@ -3,6 +3,7 @@
   "usingComponents": {
     "van-tag": "../../dist/tag/",
     "van-notice-bar": "../../dist/notice-bar/",
-    "van-dropdown-menu":"../../dist/dropdown-menu/"
+    "van-dropdown-menu":"../../dist/dropdown-menu/",
+    "van-dropdown-item": "../../dist/dropdown-item/"
   }
 }
