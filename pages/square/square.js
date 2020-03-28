@@ -14,7 +14,7 @@ Page({
       {id: 4,name: '管理类'}
     ],
     index: 0,
-    /*option1: [
+    option1: [
       { text: "全部类别", value: 0 },
       { text: "计算机类", value: 1 },
       { text: "医学类", value: 2 },
@@ -22,13 +22,16 @@ Page({
       { text: "金融类", value: 4 },
       { text: "管理类", value: 5 },
     ],
-    value1: 0,*/
+    value1: 0,
     token: null,
     total: null,
     planList: [],
     pageNo: 1,
     pageSize: 10,
     noMoreData: false,
+    searchStatus:false,
+    searchKey:null,
+    bookType:null
   },
   /**
    * 生命周期函数--监听页面加载
@@ -58,6 +61,8 @@ Page({
       pageSize: that.data.pageSize,
       token: this.data.token,
       types: [2],
+      searchKey: that.data.searchKey,
+      bookType: that.data.bookType
     }
     return util.requestApi(`${app.globalReqUrl}/plan/apple/listPlan`, paramdata).then(
       res => {
@@ -97,28 +102,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    if(this.data.noMoreData){
-      wx.showToast({
-        title: '正在刷新...',
-        icon: 'loading',
-        mask: true
-      })
-      this.getPlanListInfo(1,true).then(()=>{
-        wx.stopPullDownRefresh()
-      })
-      /*this.setData({
-        pageNo: 1,
-        planList: [],
-        noMoreData: false,
-      })
-      this.getPlanListInfo(1)*/
-      
-    }else{
-      wx.showToast({
-        title: '这是最新状态哟',
-        duration: 3000,
-      })
-    }
+    this.setData({
+      searchKey: null,
+      searchStatus: false,
+      value1:0,
+      bookType:null
+    });
+    this.getPlanListInfo(1, true);
   },
 
   /**
@@ -155,13 +145,7 @@ Page({
 
   //搜索按钮点击事件
   searchClickEvent: function (e) {
-    if (!this.data.searchKey) {
-      return;
-    }
-    this.setData({ 
-      pageIndex: 0, pageData: [] 
-    });
-    requestData.call(this);
+    this.getPlanListInfo(1, true);
   },
   //筛选类别
   bindPickerChange: function (e) {
@@ -172,11 +156,18 @@ Page({
       //bookType: this.data.array[e.detail.value]
     })
   },
-  /*kindChange: function (e) {
-    console.log('选择改变，携带下标为', e.detail.value)
-    //console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
-    this.setData({
-      value1: e.detail.value,
-    })
-  },*/
+  kindChange: function (e) {
+    console.log('选择改变，携带下标为', e.detail)
+    console.log('picker发生选择改变，携带值为', this.data.option1[e.detail].text)
+    if (e.detail==0){
+      this.setData({
+        bookType: null,
+      })
+    }else{
+      this.setData({
+        bookType: this.data.option1[e.detail].text,
+      })
+    }
+    this.getPlanListInfo(1, true);
+  },
 })
