@@ -5,15 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['计算机类', '医学类', '工程类', '金融类', '管理类'],
-    objectArray: [
-      {id: 0,name: '计算机类'},
-      {id: 1,name: '医学类'},
-      {id: 2,name: '工程类'},
-      {id: 3,name: '金融类'},
-      {id: 4,name: '管理类'}
-    ],
-    index: 0,
     option1: [
       { text: "全部类别", value: 0 },
       { text: "计算机类", value: 1 },
@@ -148,17 +139,9 @@ Page({
     this.getPlanListInfo(1, true);
   },
   //筛选类别
-  bindPickerChange: function (e) {
-    console.log('picker发生选择改变，携带下标为', e.detail.value)
-    //console.log('picker发生选择改变，携带值为', this.data.array[e.detail.value])
-    this.setData({
-      index: e.detail.value,
-      //bookType: this.data.array[e.detail.value]
-    })
-  },
   kindChange: function (e) {
     console.log('选择改变，携带下标为', e.detail)
-    console.log('picker发生选择改变，携带值为', this.data.option1[e.detail].text)
+    console.log('选择改变，携带值为', this.data.option1[e.detail].text)
     if (e.detail==0){
       this.setData({
         bookType: null,

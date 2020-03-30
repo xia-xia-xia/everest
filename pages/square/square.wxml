@@ -4,9 +4,6 @@
       <icon bindtap="searchClickEvent"  type="search" size="20"/>
       <input type="text" bindinput="searchInputEvent" value="{{searchKey}}" placeholder="请输入搜索内容"></input>
     </view>
-    <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class="seek">
-      <view>筛选-></view>
-    </picker> -->
   </view>
   <van-dropdown-menu value="0">
     <van-dropdown-item value="{{value1}}" options="{{option1}}" bind:change="kindChange"/>
