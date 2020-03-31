@@ -4,7 +4,7 @@
     "pages/proxy/proxy",
     "pages/square/square",
     "pages/you/you",
-    "pages/talk/talk",
+    "pages/message/message",
     "pages/user/user",
     "pages/detail/detail",
     "pages/create/create",
@@ -38,7 +38,7 @@
       },
       {
       "text": "我的消息",
-      "pagePath": "pages/talk/talk",
+      "pagePath": "pages/message/message",
       "iconPath": "images/iconfont-list.png",
       "selectedIconPath": "images/iconfont-list-active.png"
       },

@@ -176,11 +176,10 @@ Page({
   },
   //添加评论
   commitComment: function(e){
-    console.log('评论内容:',e.detail.value.comment)
+    //console.log('评论内容:',e.detail.value.comment)
     let paramdata = {
       token: this.data.token,
       comment: e.detail.value.comment,
-      replyId:0,
       planId:this.data.pid,
       uid:app.globalData.userInfo.id
     }
