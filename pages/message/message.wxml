@@ -1,3 +1,30 @@
-<!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
-<van-skeleton title avatar row="1" />
+<view>
+  <view wx:for="{{commentList}}">
+    
+    <view class="square-container">
+
+      <view class="top-container flex-row">
+        <!-- 第一行 -->
+        <view>
+          <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+          <text class="card-name">{{item.nickName}}</text>
+        </view>
+        <!-- 第二行 -->
+        <view class="top-two">
+          <text class="card-time">评论时间:{{item.commentCtime}}</text>
+        </view>
+      </view>
+
+      <view class="middle-container flex-column">
+        <text class="message-text">{{item.comment}}</text>
+      </view>
+      <form bindsubmit="replyComment" bindreset="">
+        <input name="comment" value="{{comment}}" placeholder="点击输入回复内容"/>
+        <button formType="submit" >回复</button>
+      </form>
+    </view>
+  </view>
+  <view wx:if="{{noMoreData}}" class="data-end">
+    -----已展示全部评论内容-----
+  </view>
+</view>
