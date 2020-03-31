@@ -132,7 +132,18 @@
         </view>
       </view>
     </view>
+    <!-- 前往评论列表 -->
+    <van-icon name="comment-o" size="60rpx" bind:click="toCommentList"/>
   </view>
 
 </view>
+<!-- <van-cell-group>
+  <van-field value="{{comment}}" left-icon="chat" type="text" placeholder="欢迎发表你的评论" use-button-slot>
+  <van-button plain slot="button" size="mini" type="primary" bind:confirm="commitComment">发送</van-button>
+  </van-field>
+</van-cell-group> -->
+<form bindsubmit="commitComment" bindreset="">
+  <textarea name="comment" value="{{comment}}" placeholder="点击输入评论内容"/>
+  <button formType="submit" >发布</button>
+</form>
 <button open-type="share">分享给好友共同进步</button>

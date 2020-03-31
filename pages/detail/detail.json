@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-tag": "../../dist/tag/",
-    "van-button": "../../dist/button/"
+    "van-button": "../../dist/button/",
+    "van-icon": "../../dist/icon/",
+    "van-field": "../../dist/field/",
+    "van-cell-group": "../../dist/cell-group/"
   }
 }

@@ -174,4 +174,34 @@ Page({
   moreguan: function () {
 
   },
+  //添加评论
+  commitComment: function(e){
+    console.log('评论内容:',e.detail.value.comment)
+    let paramdata = {
+      token: this.data.token,
+      comment: e.detail.value.comment,
+      replyId:0,
+      planId:this.data.pid,
+      uid:app.globalData.userInfo.id
+    }
+    console.log(paramdata);
+    return util.requestApi(`${app.globalReqUrl}/comment/talk/addComment`, paramdata).then(
+      res => {
+        wx.navigateTo({
+          url: '/pages/commentlist/commentlist'
+        })
+        return res.data
+      },
+      err => {
+        console.log('error', err)
+        return err
+      }
+    )
+  },
+  //展示评论列表
+  toCommentList:function(){
+    wx.navigateTo({
+      url: '/pages/commentlist/commentlist'
+    })
+  }
 })

@@ -8,7 +8,8 @@
     "pages/user/user",
     "pages/detail/detail",
     "pages/create/create",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/commentlist/commentlist"
   ],
   "window": {
     "backgroundTextStyle": "light",
