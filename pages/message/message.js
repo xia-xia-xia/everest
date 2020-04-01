@@ -1,4 +1,6 @@
 // pages/message/message.js
+const app = getApp();
+var util = require("../../utils/util.js")
 Page({
 
   /**
@@ -6,10 +8,8 @@ Page({
    */
   data: {
     token: null,
-    replytId: null,
     commentTotal: null,
     commentList: [],
-    //userInfo: null,
     pageNo: 1,
     pageSize: 10,
     noMoreData: false,
@@ -43,14 +43,14 @@ Page({
         token: wx.getStorageSync('token')
       });
     }
-    console.log("消息:", this.data.token)
+    console.log("登录用户:", app.globalData.userInfo.id)
     let that = this
     pageNo: pageNo || that.data.pageNo
     let paramdata = {
       pageNo: pageNo || that.data.pageNo,
       pageSize: that.data.pageSize,
       token: this.data.token,
-      //toUid: app.globalData.userInfo.id
+      toUid: app.globalData.userInfo.id
     }
     return util.requestApi(`${app.globalReqUrl}/comment/talk/listComment`, paramdata).then(
       res => {
@@ -67,7 +67,7 @@ Page({
           commentTotal: res.data.commentTotal,
           commentList:override?res.data.list: this.data.commentList.concat(res.data.list),
         });
-        console.log("commentReply", res.data.list)
+        console.log("needReply", res.data.list)
         if (this.data.commentList.length >= this.data.commentTotal){
           this.setData({
             noMoreData: true
@@ -87,12 +87,11 @@ Page({
   },
   //回复评论
   replyComment: function(e){
-    console.log('回复内容:',e.detail.value.comment)
+    console.log('回复id:',e.currentTarget.dataset.cid)
     let paramdata = {
       token: this.data.token,
       comment: e.detail.value.comment,
-      //replyId:this.data.replytId,
-      replyId:res.data.list.id,
+      replyId:e.currentTarget.dataset.cid,
       uid:app.globalData.userInfo.id
     }
     console.log(paramdata);

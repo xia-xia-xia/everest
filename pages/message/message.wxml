@@ -20,7 +20,7 @@
       </view>
       <form bindsubmit="replyComment" bindreset="">
         <input name="comment" value="{{comment}}" placeholder="点击输入回复内容"/>
-        <button formType="submit" >回复</button>
+        <button formType="submit" data-cid='{{item.id}}'>回复</button>
       </form>
     </view>
   </view>
