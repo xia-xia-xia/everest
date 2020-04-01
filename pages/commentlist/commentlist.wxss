@@ -19,6 +19,12 @@
   border-radius:100%;
   margin-right: 12rpx
 }
+.card-reply-avatar {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius:100%;
+  margin-right: 12rpx
+}
 .card-time {
   font-size: 22rpx;
   margin-top: 8rpx;
@@ -27,6 +33,29 @@
 }
 .card-name {
   color: #00bfff;
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply-name {
+  color: hsl(4, 100%, 50%);
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply-owner {
+  color: hsl(234, 89%, 47%);
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply {
+  color: hsl(123, 88%, 47%);
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply-comment {
   font-weight: bold;
   font-size: 25rpx;
   margin: 8rpx;

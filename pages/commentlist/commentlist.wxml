@@ -1,23 +1,52 @@
 <view>
-  <view wx:for="{{planList}}">
+  <view wx:for="{{commentList}}">
     
-    <view class="square-container" bindtap="clickPlan" data-pid='{{item.id}}'wx:if="{{item.type==2}}">
+    <view class="square-container" bindtap="clickPlan" data-pid='{{item.id}}'>
 
       <view class="top-container flex-row">
         <!-- 第一行 -->
         <view>
+          <view wx:if="{{item.author==true}}">
+          <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+          <text class="card-reply-owner">[楼主]</text>
+          <text class="card-name">{{item.nickName}}</text>
+          </view>
+          <view wx:if="{{item.author==false}}">
           <image class="card-avatar" src="{{item.avartarUrl}}"></image>
           <text class="card-name">{{item.nickName}}</text>
+        
+          </view>
         </view>
         <!-- 第二行 -->
         <view class="top-two">
           <text class="card-time">评论时间:{{item.ctime}}</text>
         </view>
+       <view class="middle-container flex-column">
+        <text class="message-text">{{item.comment}}</text>
       </view>
-
-      <view class="middle-container flex-column">
-        <text class="message-text">{{item.content}}</text>
       </view>
+      <view wx:for="{{item.replyList}}">
+        <view class="middle-container flex-column">
+          <view wx:if="{{item.author==true}}">
+          <image class="card-reply-avatar" src="{{item.avartarUrl}}"></image>
+          <text class="card-reply-owner">[楼主]</text>
+          <text class="card-reply-name">{{item.nickName}}</text>
+          <text class="card-reply">回复:</text>
+          <text class="card-reply-comment">{{item.comment}}</text>
+          </view>
+          <view wx:if="{{item.author==false}}">
+          <image class="card-reply-avatar" src="{{item.avartarUrl}}"></image>
+          <text class="card-reply-name">{{item.nickName}}</text>
+          <text class="card-reply">回复:</text>
+          <text class="card-reply-comment">{{item.comment}}</text>
+          </view>
+      </view>
+      </view>
+      <form bindsubmit="commitReply" bindreset="">
+        <input name="id" value="{{item.id}}" hidden="true"></input>
+        <input name="reply" value="{{reply}}" placeholder="点击输入回复内容"/>
+        <button formType="submit" >回复</button>
+      </form>
     </view>
   </view>
   <view wx:if="{{noMoreData}}" class="data-end">

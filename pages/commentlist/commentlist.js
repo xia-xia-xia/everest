@@ -10,8 +10,9 @@ Page({
     commentTotal: null,
     commentList: [],
     pageNo: 1,
-    pageSize: 10,
+    pageSize: 100,
     noMoreData: false,
+    reply:null
   },
 
   /**
@@ -76,6 +77,36 @@ Page({
           })
         }
         return res.data;
+      },
+      err => {
+        console.log('error', err)
+        return err
+      }
+    )
+  },
+  //回复
+  commitReply: function (e) {
+    //console.log('评论内容:',e.detail.value.comment)
+    if (e.detail.value.reply.length == 0 || e.detail.value.reply.length > 20) {
+      wx.showToast({
+        title: '回复20字以内哦',
+        duration: 3000
+      })
+      return;
+    }
+    let paramdata = {
+      token: this.data.token,
+      comment: e.detail.value.reply,
+      replyId: e.detail.value.id,
+    }
+    console.log(paramdata);
+    return util.requestApi(`${app.globalReqUrl}/comment/talk/addComment`, paramdata).then(
+      res => {
+        this.setData({
+          reply: null
+        });
+        this.getCommentListInfo(1, true);
+        return;
       },
       err => {
         console.log('error', err)
