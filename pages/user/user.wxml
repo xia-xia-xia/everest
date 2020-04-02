@@ -11,44 +11,36 @@
 </view>
 
 <view class="workbench">
-  <text class="title">我的计划</text>
+  <text class="title">我的感悟</text>
   <view class="list">
-    <view class="items" bindtap="notbegin">
-      <image src="../../images/user-wait.png"></image>
-      <text>未开始</text>
+    <view class="items" bindtap="private">
+      <image src="../../images/user-private.png"></image>
+      <text>私密感悟</text>
     </view>
-    <view class="items" bindtap="ongoing">
-      <image src="../../images/user-going.png"></image>
-      <text>进行中</text>
+    <view class="items" bindtap="public">
+      <image src="../../images/user-public.png"></image>
+      <text>公开感悟</text>
     </view>
-    <view class="items" bindtap="complete">
-      <image src="../../images/user-end.png"></image>
-      <text>已完成</text>
-    </view>
-    <view class="items" bindtap="fail">
-      <image src="../../images/user-fail.png"></image>
-      <text>未完成</text>
+    <view class="items" bindtap="import">
+      <image src="../../images/user-import.png"></image>
+      <text>重点推荐</text>
     </view>
   </view>
 </view>
 <view class="workbench">
   <text class="title">更多</text>
   <view class="list">
-    <view class="items" bindtap="private">
-      <image src="../../images/user-private.png"></image>
-      <text>私密计划</text>
+    <view class="items" bindtap="star">
+      <image src="../../images/user-star.png"></image>
+      <text>我的收藏</text>
     </view>
-    <view class="items" bindtap="public">
-      <image src="../../images/user-public.png"></image>
-      <text>公开计划</text>
+    <view class="items" bindtap="see">
+      <image src="../../images/user-see.png"></image>
+      <text>我的关注</text>
     </view>
-    <view class="items" bindtap="upvote">
-      <image src="../../images/user-good.png"></image>
-      <text>我的点赞</text>
-    </view>
-    <view class="items" bindtap="challenge">
-      <image src="../../images/user-pk.png"></image>
-      <text>我的挑战</text>
+    <view class="items" bindtap="about">
+      <image src="../../images/user-about.png"></image>
+      <text>关于研书</text>
     </view>
   </view>
 </view>

@@ -31,40 +31,7 @@ Page({
     });
   },
   /**
-   * 未开始
-   */
-  notbegin: function() {
-    wx.navigateTo({
-      url: '/pages/personal/personal?status=2'
-    })
-  },
-  /**
-   * 进行中
-   */
-  ongoing: function() {
-    wx.navigateTo({
-      url: '/pages/personal/personal?status=3'
-    })
-  },
-  /**
-   * 已完成
-   */
-  complete: function() {
-    wx.navigateTo({
-      url: '/pages/personal/personal?status=4'
-    })
-  },
-  /**
-   * 未完成
-   */
-  fail: function() {
-    wx.navigateTo({
-      url: '/pages/personal/personal?status=5'
-    })
-  },
-
-  /**
-   * 私密计划
+   * 私密感悟
    */
   private: function() {
     wx.navigateTo({
@@ -72,7 +39,7 @@ Page({
     })
   },
   /**
-   * 公开计划
+   * 公开感悟
    */
   public: function() {
     wx.navigateTo({
@@ -80,19 +47,20 @@ Page({
     })
   },
   /**
-   * 我的点赞
+   * 重点推荐
    */
-  upvote: function() {
+  import: function() {
+    wx.navigateTo({
+      url: '/pages/personal/personal?type=4'
+    })
+  },
+  /**
+   * 我的收藏
+   */
+  star: function() {
     wx.navigateTo({
       url: '/pages/personal/personal?upvote=1'
     })
   },
-  /**
-   * 我的挑战
-   */
-  challenge: function() {
-    wx.navigateTo({
-      url: '/pages/personal/personal?type=3'
-    })
-  }
+  
 });

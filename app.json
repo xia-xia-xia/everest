@@ -39,8 +39,8 @@
       {
       "text": "我的消息",
       "pagePath": "pages/message/message",
-      "iconPath": "images/iconfont-list.png",
-      "selectedIconPath": "images/iconfont-list-active.png"
+      "iconPath": "images/iconfont-message.png",
+      "selectedIconPath": "images/iconfont-message-active.png"
       },
       {
         "text": "个人中心",

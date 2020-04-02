@@ -3,22 +3,22 @@
   <view class="userinfo">
 
     <image class="userinfo-avatar" src="/images/logo.png" bindtap="ff"></image>
-    <text>YOU计划是计划制订、分享及挑战平台</text>
-    <text>YOU，是年轻(Young)的你</text>
-    <text>是杰出(Outstanding)的你</text>
-    <text>更是独一无二(Unique)的你</text>
-    <text>更重要的是</text>
-    <text>我们坚信</text>
-    <text>You are You等生！</text>
-    <text>You 秀！</text>
+    <text>在这里</text>
+    <text>可以记录学习路上成长的点滴</text>
+    <text>在这里</text>
+    <text>可以为你指点迷津</text>
+    <text>在这里</text>
+    <text>可以共同探讨找到更好的答案</text>
+    <text>相信一定是特别的缘分</text>
+    <text>相遇在这里</text>
     <view class="jdc-confirm__radio_open">
       <label>
         <radio value="1" checked="true" color="#4599b6" /> 同意
-        <navigator url='/pages/proxy/proxy' class="protocal">《YOU计划用户协议》</navigator>
+        <navigator url='/pages/proxy/proxy' class="protocal">《研书用户协议》</navigator>
       </label>
     </view>
     <button type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
-      加入YOU计划
+      加入研书
     </button>
   </view>
 </view>

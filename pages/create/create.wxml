@@ -17,7 +17,7 @@
   </view>
   <view class="other">
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-      <view class="other1">选择所属分类  -------------------------> {{array[index]}} </view>
+      <view class="other1">选择所属分类  ----------------> {{array[index]}} </view>
     </picker>
   </view>
   <view class="bottom">
