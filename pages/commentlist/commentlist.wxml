@@ -7,40 +7,39 @@
         <!-- 第一行 -->
         <view>
           <view wx:if="{{item.author==true}}">
-          <image class="card-avatar" src="{{item.avartarUrl}}"></image>
-          <text class="card-reply-owner">[楼主]</text>
-          <text class="card-name">{{item.nickName}}</text>
+            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+            <text class="card-name">{{item.nickName}}</text>
+            <text class="card-reply-owner">[楼主]</text>
           </view>
           <view wx:if="{{item.author==false}}">
-          <image class="card-avatar" src="{{item.avartarUrl}}"></image>
-          <text class="card-name">{{item.nickName}}</text>
-        
+            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+            <text class="card-name">{{item.nickName}}</text>
           </view>
         </view>
         <!-- 第二行 -->
         <view class="top-two">
-          <text class="card-time">评论时间:{{item.ctime}}</text>
+          <text class="card-time">评论时间:{{item.commentCtime}}</text>
         </view>
-       <view class="middle-container flex-column">
+      </view>
+
+      <view class="middle-container flex-column">
         <text class="message-text">{{item.comment}}</text>
       </view>
-      </view>
+      
       <view wx:for="{{item.replyList}}">
         <view class="middle-container flex-column">
           <view wx:if="{{item.author==true}}">
-          <image class="card-reply-avatar" src="{{item.avartarUrl}}"></image>
-          <text class="card-reply-owner">[楼主]</text>
-          <text class="card-reply-name">{{item.nickName}}</text>
-          <text class="card-reply">回复:</text>
-          <text class="card-reply-comment">{{item.comment}}</text>
+            <text class="card-reply-owner">[楼主]</text>
+            <text class="card-reply-name">{{item.nickName}}</text>
+            <text class="card-reply">回复:</text>
+            <text class="card-reply-comment">{{item.comment}}</text>
           </view>
           <view wx:if="{{item.author==false}}">
-          <image class="card-reply-avatar" src="{{item.avartarUrl}}"></image>
-          <text class="card-reply-name">{{item.nickName}}</text>
-          <text class="card-reply">回复:</text>
-          <text class="card-reply-comment">{{item.comment}}</text>
+            <text class="card-reply-name">{{item.nickName}}</text>
+            <text class="card-reply">回复:</text>
+            <text class="card-reply-comment">{{item.comment}}</text>
           </view>
-      </view>
+        </view>
       </view>
       <form bindsubmit="commitReply" bindreset="">
         <input name="id" value="{{item.id}}" hidden="true"></input>
