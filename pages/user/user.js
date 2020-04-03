@@ -62,5 +62,9 @@ Page({
       url: '/pages/personal/personal?upvote=1'
     })
   },
-  
+  see: function() {
+    wx.navigateTo({
+      url: '/pages/follow/follow'
+    })
+  },
 });

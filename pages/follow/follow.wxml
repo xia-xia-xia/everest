@@ -1,0 +1,11 @@
+<!--pages/follow/follow.wxml-->
+<view>
+  <text class="card-name">我的关注</text>
+  <view class="square-container" bindtap="toPlanList">
+    <view class="follow-container flex-row">
+      <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+      <text class="card-name">{{item.nickName}}</text>
+      <van-tag round type="warning">已关注</van-tag>
+    </view>
+  </view>
+</view>

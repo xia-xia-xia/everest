@@ -1,0 +1,21 @@
+/* pages/follow/follow.wxss */
+.square-container {
+  background-color: rgb(233, 227, 227);
+  margin: 15rpx;
+  border-radius: 10rpx;
+}
+.follow-container {
+  padding: 10rpx;
+}
+.card-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius:100%;
+  margin-right: 12rpx
+}
+.card-name {
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 40rpx;
+  margin: 8rpx;
+}
