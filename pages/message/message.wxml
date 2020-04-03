@@ -12,16 +12,13 @@
         <!-- 第二行 -->
         <view class="top-two">
           <text class="card-time">评论时间:{{item.commentCtime}}</text>
+          <van-icon name="comment" size="60rpx" bind:click="toCommentList"/>
         </view>
       </view>
 
       <view class="middle-container flex-column">
         <text class="message-text">{{item.comment}}</text>
       </view>
-      <form bindsubmit="replyComment" bindreset="">
-        <input name="comment" value="{{comment}}" placeholder="点击输入回复内容"/>
-        <button formType="submit" data-cid='{{item.id}}'>回复</button>
-      </form>
     </view>
   </view>
   <view wx:if="{{noMoreData}}" class="data-end">

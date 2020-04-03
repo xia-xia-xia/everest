@@ -30,7 +30,12 @@ Page({
   onReady: function () {
 
   },
-
+  //前往评论区
+  toCommentList:function(){
+    wx.navigateTo({
+      url: '/pages/commentlist/commentlist'
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

@@ -147,3 +147,59 @@
   <button formType="submit" >发布</button>
 </form>
 <button open-type="share">分享给好友共同进步</button>
+<text>评论区</text>
+<view wx:if="{{commentTotal==0}}">空空如也～</view>
+<view>
+  <view wx:for="{{commentList}}">
+    
+    <view class="square-container" bindtap="clickPlan" data-pid='{{item.id}}'>
+
+      <view class="top-container1 flex-row">
+        <!-- 第一行 -->
+        <view>
+          <view wx:if="{{item.author==true}}">
+            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+            <text class="card-name">{{item.nickName}}</text>
+            <text class="card-reply-owner">[楼主]</text>
+          </view>
+          <view wx:if="{{item.author==false}}">
+            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+            <text class="card-name1">{{item.nickName}}</text>
+          </view>
+        </view>
+        <!-- 第二行 -->
+        <view class="top-two">
+          <text class="card-time1">评论时间:{{item.commentCtime}}</text>
+        </view>
+      </view>
+
+      <view class="middle-container flex-column">
+        <text class="message-text">{{item.comment}}</text>
+      </view>
+      
+      <view wx:for="{{item.replyList}}">
+        <view class="middle-container flex-column">
+          <view wx:if="{{item.author==true}}">
+            <text class="card-reply-owner">[楼主]</text>
+            <text class="card-reply-name">{{item.nickName}}</text>
+            <text class="card-reply">回复:</text>
+            <text class="card-reply-comment">{{item.comment}}</text>
+          </view>
+          <view wx:if="{{item.author==false}}">
+            <text class="card-reply-name">{{item.nickName}}</text>
+            <text class="card-reply">回复:</text>
+            <text class="card-reply-comment">{{item.comment}}</text>
+          </view>
+        </view>
+      </view>
+      <form bindsubmit="commitReply" bindreset="">
+        <input name="id" value="{{item.id}}" hidden="true"></input>
+        <input name="reply" value="{{reply}}" placeholder="点击输入回复内容"/>
+        <button formType="submit" >回复</button>
+      </form>
+    </view>
+  </view>
+  <view wx:if="{{noMoreData}}" class="data-end">
+    -----已展示全部评论内容-----
+  </view>
+</view>

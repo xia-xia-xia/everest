@@ -114,3 +114,72 @@
   color: #03b3ee;
   font-size: 30rpx;
 }
+/* pages/commentlist/commentlist.wxss */
+.square-container {
+  background-color: white;
+  margin: 15rpx;
+  border-radius: 4rpx;
+  box-shadow: 0 1px 2px #00bfff;
+}
+.top-container1 {
+  padding: 10rpx;
+}
+.top-two{
+  display: flex;
+  flex-flow: row;
+  align-items: center
+}
+.card-reply-avatar {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius:100%;
+  margin-right: 12rpx
+}
+.card-time1 {
+  font-size: 22rpx;
+  margin-top: 8rpx;
+  color: #9c9191;
+  margin-right: 200rpx;
+}
+.card-name1 {
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply-name {
+  color: hsl(4, 100%, 50%);
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply-owner {
+  color: hsl(234, 89%, 47%);
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply {
+  color: hsl(123, 88%, 47%);
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.card-reply-comment {
+  font-weight: bold;
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.middle-container {
+  padding: 10rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.message-text{
+  color: #333;
+  font-size: 28rpx;
+  flex: 1;
+}
