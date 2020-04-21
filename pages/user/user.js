@@ -59,9 +59,12 @@ Page({
    */
   star: function() {
     wx.navigateTo({
-      url: '/pages/personal/personal?upvote=1'
+      url: '/pages/personal/personal?star=1'
     })
   },
+  /**
+   * 我的关注
+   */
   see: function() {
     wx.navigateTo({
       url: '/pages/follow/follow'

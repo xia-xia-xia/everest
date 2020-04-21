@@ -148,7 +148,10 @@
 </form>
 <button open-type="share">分享给好友共同进步</button>
 <text>评论区</text>
-<view wx:if="{{commentTotal==0}}">空空如也～</view>
+<!-- <view wx:if="{{commentTotal==0}}">
+  <view class="show-empty">暂无评论</view>
+</view>
+<view wx:elif="{{commentTotal>0}}"> -->
 <view>
   <view wx:for="{{commentList}}">
     

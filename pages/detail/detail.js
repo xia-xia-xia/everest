@@ -100,6 +100,7 @@ Page({
       userInfo: app.globalData.userInfo
     })
     this.getPlanDetail();
+    this.getCommentListInfo(1,true);
   },
 
   getPlanDetail: function() {
@@ -122,32 +123,20 @@ Page({
     )
 
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-    this.getCommentListInfo(1,true);
-  },
+ //评论列表
   getCommentListInfo: function(pageNo,override) {
-    if (this.data.token == null) {
+    /*if (this.data.token == null) {
       this.setData({
-        token: wx.getStorageSync('token')
+        token: wx.getStorageSync('token'),
       });
-    }
-    console.log("消息:", this.data.token)
+    }*/
     let that = this
     pageNo: pageNo || that.data.pageNo
     let paramdata = {
       pageNo: pageNo || that.data.pageNo,
       pageSize: that.data.pageSize,
       token: this.data.token,
+      planId:this.data.pid
     }
     return util.requestApi(`${app.globalReqUrl}/comment/talk/listComment`, paramdata).then(
       res => {
@@ -164,7 +153,8 @@ Page({
           commentTotal: res.data.commentTotal,
           commentList:override?res.data.list: this.data.commentList.concat(res.data.list),
         });
-        console.log("commentReply", res.data.list)
+        console.log("commentLists：", res.data.list)
+        //console.log("评论数量：",res.data.commentTotal)
         if (this.data.commentList.length >= this.data.commentTotal){
           this.setData({
             noMoreData: true
@@ -211,6 +201,18 @@ Page({
         return err
       }
     )
+  },
+   /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
   },
   /**
    * 生命周期函数--监听页面隐藏
