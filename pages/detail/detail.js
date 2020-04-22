@@ -97,7 +97,7 @@ Page({
     this.setData({
       token: app.globalData.token,
       pid: options.pid,
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
     })
     this.getPlanDetail();
     this.getCommentListInfo(1,true);
@@ -299,10 +299,11 @@ Page({
     console.log(paramdata);
     return util.requestApi(`${app.globalReqUrl}/comment/talk/addComment`, paramdata).then(
       res => {
-        wx.navigateTo({
-          url: '/pages/commentlist/commentlist'
-        })
-        return res.data
+        this.setData({
+          comment: null
+        });
+        this.getCommentListInfo(1, true);
+        return;
       },
       err => {
         console.log('error', err)
@@ -311,9 +312,9 @@ Page({
     )
   },
   //展示评论列表
-  toCommentList:function(){
+  /*toCommentList:function(){
     wx.navigateTo({
       url: '/pages/commentlist/commentlist'
     })
-  }
+  }*/
 })

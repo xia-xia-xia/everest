@@ -12,7 +12,7 @@
         <!-- 第二行 -->
         <view class="top-two">
           <text class="card-time">评论时间:{{item.commentCtime}}</text>
-          <van-icon name="comment" size="60rpx" bind:click="toCommentList"/>
+          <van-icon name="comment" size="60rpx" bind:click="toCommentList" data-pid="{{item.planId}}"/>
         </view>
       </view>
 
@@ -22,6 +22,6 @@
     </view>
   </view>
   <view wx:if="{{noMoreData}}" class="data-end">
-    -----已展示全部评论内容-----
+    -----已展示全部消息-----
   </view>
 </view>

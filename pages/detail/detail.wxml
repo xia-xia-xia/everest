@@ -133,7 +133,7 @@
       </view>
     </view>
     <!-- 前往评论列表 -->
-    <van-icon name="comment-o" size="60rpx" bind:click="toCommentList"/>
+    <!-- <van-icon name="comment-o" size="60rpx" bind:click="toCommentList"/> -->
   </view>
 
 </view>
@@ -147,7 +147,9 @@
   <button formType="submit" >发布</button>
 </form>
 <button open-type="share">分享给好友共同进步</button>
-<text>评论区</text>
+<view class="data-end">
+  <text>评论区</text>
+</view>
 <!-- <view wx:if="{{commentTotal==0}}">
   <view class="show-empty">暂无评论</view>
 </view>
@@ -155,7 +157,7 @@
 <view>
   <view wx:for="{{commentList}}">
     
-    <view class="square-container" bindtap="clickPlan" data-pid='{{item.id}}'>
+    <view class="square-container">
 
       <view class="top-container1 flex-row">
         <!-- 第一行 -->

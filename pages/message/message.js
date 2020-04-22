@@ -32,8 +32,9 @@ Page({
   },
   //前往评论区
   toCommentList:function(){
+    console.log("pid:",e.currentTarget.dataset.pid)
     wx.navigateTo({
-      url: '/pages/commentlist/commentlist'
+      url: '/pages/detail/detail?pid=' + e.currentTarget.dataset.pid
     })
   },
   /**
