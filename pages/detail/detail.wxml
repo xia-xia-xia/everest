@@ -150,11 +150,10 @@
 <view class="data-end">
   <text>评论区</text>
 </view>
-<!-- <view wx:if="{{commentTotal==0}}">
-  <view class="show-empty">暂无评论</view>
+<view wx:if="{{commentTotal==0}}">
+  <view class="data-end">暂无评论</view>
 </view>
-<view wx:elif="{{commentTotal>0}}"> -->
-<view>
+<view wx:elif="{{commentTotal>0}}">
   <view wx:for="{{commentList}}">
     
     <view class="square-container">

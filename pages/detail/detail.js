@@ -150,11 +150,10 @@ Page({
           })
         }
         this.setData({
-          commentTotal: res.data.commentTotal,
+          commentTotal: res.data.total,
           commentList:override?res.data.list: this.data.commentList.concat(res.data.list),
         });
         console.log("commentLists：", res.data.list)
-        //console.log("评论数量：",res.data.commentTotal)
         if (this.data.commentList.length >= this.data.commentTotal){
           this.setData({
             noMoreData: true

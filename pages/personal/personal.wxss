@@ -1,6 +1,4 @@
-.show-empty{
-  margin: 350rpx
-}
+
 .square-container {
   background-color: white;
   margin: 20rpx;

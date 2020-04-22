@@ -11,3 +11,6 @@
 .data-end{
   text-align: center
 }
+.show-empty{
+  margin: 350rpx
+}

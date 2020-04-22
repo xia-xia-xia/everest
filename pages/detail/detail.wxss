@@ -183,3 +183,6 @@
   font-size: 28rpx;
   flex: 1;
 }
+.show-no{
+  margin: 150rpx
+}

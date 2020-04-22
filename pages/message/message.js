@@ -31,8 +31,7 @@ Page({
 
   },
   //前往评论区
-  toCommentList:function(){
-    console.log("pid:",e.currentTarget.dataset.pid)
+  toCommentList:function(e){
     wx.navigateTo({
       url: '/pages/detail/detail?pid=' + e.currentTarget.dataset.pid
     })
@@ -70,7 +69,7 @@ Page({
           })
         }
         this.setData({
-          commentTotal: res.data.commentTotal,
+          commentTotal: res.data.total,
           commentList:override?res.data.list: this.data.commentList.concat(res.data.list),
         });
         console.log("needReply", res.data.list)
