@@ -13,6 +13,7 @@ Page({
     planInfo: null,
     token: null,
     //评论区
+    comment: null,
     commentTotal: null,
     commentList: [],
     pageNo: 1,
@@ -288,10 +289,10 @@ Page({
   },
   //添加评论
   commitComment: function(e){
-    //console.log('评论内容:',e.detail.value.comment)
+    console.log('评论内容:',this.data.comment)
     let paramdata = {
       token: this.data.token,
-      comment: e.detail.value.comment,
+      comment: this.data.comment,
       planId:this.data.pid,
       uid:app.globalData.userInfo.id
     }
@@ -310,10 +311,11 @@ Page({
       }
     )
   },
-  //展示评论列表
-  /*toCommentList:function(){
-    wx.navigateTo({
-      url: '/pages/commentlist/commentlist'
-    })
-  }*/
+  //评论输入框输入取值
+  onChange(e) {
+    console.log(e.detail);
+    this.setData({ 
+      comment: e.detail 
+    });
+  }
 })

@@ -132,20 +132,18 @@
         </view>
       </view>
     </view>
-    <!-- 前往评论列表 -->
-    <!-- <van-icon name="comment-o" size="60rpx" bind:click="toCommentList"/> -->
   </view>
-
 </view>
-<!-- <van-cell-group>
-  <van-field value="{{comment}}" left-icon="chat" type="text" placeholder="欢迎发表你的评论" use-button-slot>
-  <van-button plain slot="button" size="mini" type="primary" bind:confirm="commitComment">发送</van-button>
+
+<van-cell-group>
+  <van-field value="{{comment}}" bind:change="onChange" left-icon="chat" type="text" placeholder="欢迎发表你的评论" use-button-slot>
+  <van-button slot="button" size="mini" type="primary" bind:confirm="commitComment">发送</van-button>
   </van-field>
-</van-cell-group> -->
-<form bindsubmit="commitComment" bindreset="">
+</van-cell-group>
+<!-- <form bindsubmit="commitComment" bindreset="">
   <textarea name="comment" value="{{comment}}" placeholder="点击输入评论内容"/>
   <button formType="submit" >发布</button>
-</form>
+</form> -->
 <button open-type="share">分享给好友共同进步</button>
 <view class="data-end">
   <text>评论区</text>
@@ -158,13 +156,13 @@
     
     <view class="square-container">
 
-      <view class="top-container1 flex-row">
+      <view class="top-container1">
         <!-- 第一行 -->
         <view>
           <view wx:if="{{item.author==true}}">
             <image class="card-avatar" src="{{item.avartarUrl}}"></image>
-            <text class="card-name">{{item.nickName}}</text>
-            <text class="card-reply-owner">[楼主]</text>
+            <text class="card-name1">{{item.nickName}}</text>
+            <text class="card-owner">[楼主]</text>
           </view>
           <view wx:if="{{item.author==false}}">
             <image class="card-avatar" src="{{item.avartarUrl}}"></image>
@@ -173,34 +171,35 @@
         </view>
         <!-- 第二行 -->
         <view class="top-two">
-          <text class="card-time1">评论时间:{{item.commentCtime}}</text>
+          <text class="card-time1">{{item.commentCtime}}</text>
+        </view>
+        <!-- 第三行 -->
+        <view class="top-two">
+          <text class="message-text">{{item.comment}}</text>
         </view>
       </view>
-
-      <view class="middle-container flex-column">
-        <text class="message-text">{{item.comment}}</text>
-      </view>
       
-      <view wx:for="{{item.replyList}}">
-        <view class="middle-container flex-column">
+      <view class="reply-square">
+        <view wx:for="{{item.replyList}}"> 
           <view wx:if="{{item.author==true}}">
-            <text class="card-reply-owner">[楼主]</text>
-            <text class="card-reply-name">{{item.nickName}}</text>
-            <text class="card-reply">回复:</text>
+            <text class="card-owner">[楼主]</text>
+            <text class="card-name1">{{item.nickName}}:</text>
             <text class="card-reply-comment">{{item.comment}}</text>
           </view>
           <view wx:if="{{item.author==false}}">
-            <text class="card-reply-name">{{item.nickName}}</text>
-            <text class="card-reply">回复:</text>
+            <text class="card-name1">{{item.nickName}}:</text>
             <text class="card-reply-comment">{{item.comment}}</text>
           </view>
         </view>
       </view>
-      <form bindsubmit="commitReply" bindreset="">
-        <input name="id" value="{{item.id}}" hidden="true"></input>
-        <input name="reply" value="{{reply}}" placeholder="点击输入回复内容"/>
-        <button formType="submit" >回复</button>
-      </form>
+      <view class="bottom-square">
+        <form bindsubmit="commitReply" bindreset="">
+          <input name="id" value="{{item.id}}" hidden="true"></input>
+          <input name="reply" value="{{reply}}" placeholder="点击输入回复内容"/>
+          <button formType="submit" >回复</button>
+        </form>
+      </view>
+
     </view>
   </view>
   <view wx:if="{{noMoreData}}" class="data-end">

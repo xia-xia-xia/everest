@@ -88,7 +88,6 @@
   padding: 12rpx;
 }
 .bottom{
-  display: flex;
   flex-flow: row;
   padding: 20rpx;
   justify-content: space-between;
@@ -102,8 +101,8 @@
   flex-flow: row;
   justify-content: space-between;
   padding: 10rpx;
-  border-radius: 20rpx;
-  box-shadow: 2px 2px 2px rgb(5, 5, 5);
+  border-radius: 10rpx;
+  box-shadow: 0 1px 2px #8999a5;
 }
 .view {
   width: 60rpx;
@@ -116,72 +115,47 @@
 }
 /* pages/commentlist/commentlist.wxss */
 .square-container {
-  background-color: white;
   margin: 15rpx;
-  border-radius: 4rpx;
-  box-shadow: 0 1px 2px #00bfff;
+  border-bottom: 1rpx solid #e1e1e1;
 }
 .top-container1 {
   padding: 10rpx;
 }
+.card-name1 {
+  font-size: 25rpx;
+  margin-left: 8rpx;
+  color:#50b3d4;
+}
+.card-owner {
+  color:rgb(245, 169, 56);
+  font-size: 25rpx;
+  margin: 8rpx;
+}
 .top-two{
   display: flex;
   flex-flow: row;
-  align-items: center
-}
-.card-reply-avatar {
-  width: 30rpx;
-  height: 30rpx;
-  border-radius:100%;
-  margin-right: 12rpx
+  align-items: center;
+  margin-left: 50rpx;
 }
 .card-time1 {
   font-size: 22rpx;
   margin-top: 8rpx;
   color: #9c9191;
-  margin-right: 200rpx;
-}
-.card-name1 {
-  font-weight: bold;
-  font-size: 25rpx;
-  margin: 8rpx;
-}
-.card-reply-name {
-  color: hsl(4, 100%, 50%);
-  font-weight: bold;
-  font-size: 25rpx;
-  margin: 8rpx;
-}
-.card-reply-owner {
-  color: hsl(234, 89%, 47%);
-  font-weight: bold;
-  font-size: 25rpx;
-  margin: 8rpx;
-}
-.card-reply {
-  color: hsl(123, 88%, 47%);
-  font-weight: bold;
-  font-size: 25rpx;
-  margin: 8rpx;
-}
-.card-reply-comment {
-  font-weight: bold;
-  font-size: 25rpx;
-  margin: 8rpx;
-}
-.middle-container {
-  padding: 10rpx;
-  border-bottom: 1rpx solid #e1e1e1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow:ellipsis;
 }
 .message-text{
-  color: #333;
-  font-size: 28rpx;
-  flex: 1;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.reply-square {
+  background-color: rgb(250, 248, 248);
+  margin-left: 50rpx;
+}
+.card-reply-comment {
+  font-size: 25rpx;
+  margin: 8rpx;
+}
+.bottom-square{
+  margin-left: 50rpx;
 }
 .show-no{
   margin: 150rpx
