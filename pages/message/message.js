@@ -90,64 +90,6 @@ Page({
       }
     )
   },
-  //回复评论
-  replyComment: function(e){
-    console.log('回复id:',e.currentTarget.dataset.cid)
-    let paramdata = {
-      token: this.data.token,
-      comment: e.detail.value.comment,
-      replyId:e.currentTarget.dataset.cid,
-      uid:app.globalData.userInfo.id
-    }
-    console.log(paramdata);
-    return util.requestApi(`${app.globalReqUrl}/comment/talk/addComment`, paramdata).then(
-      res => {
-        wx.navigateTo({
-          url: '/pages/commentlist/commentlist'
-        })
-        return res.data
-      },
-      err => {
-        console.log('error', err)
-        return err
-      }
-    )
-  },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    if (this.data.noMoreData) {
-      wx.showToast({
-        title: '正在刷新...',
-        icon: 'loading',
-        mask: true
-      })
-      this.getPlanListInfo(1, true).then(() => {
-        wx.stopPullDownRefresh()
-      })
-    } else {
-      wx.showToast({
-        title: '这是最新状态哟',
-        duration: 3000,
-      })
-    }
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -162,7 +104,7 @@ Page({
         icon: 'loading',
         mask: true
       })
-      this.getPlanListInfo(this.data.pageNo)
+      this.getCommentListInfo(this.data.pageNo)
     } else {
       console.log('已经加载到底部了')
     }

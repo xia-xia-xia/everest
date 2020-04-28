@@ -19,7 +19,9 @@ Page({
     pageNo: 1,
     pageSize: 100,
     noMoreData: false,
-    reply:null
+    reply:null,
+
+    //releaseFocus: false,
   },
   //关注作者
   guan: function() {
@@ -103,7 +105,7 @@ Page({
     this.getPlanDetail();
     this.getCommentListInfo(1,true);
   },
-
+  //感悟详情
   getPlanDetail: function() {
     let paramdata = {
       token: this.data.token,
@@ -111,7 +113,6 @@ Page({
     }
     return util.requestApi(`${app.globalReqUrl}/plan/apple/detailPlan`, paramdata).then(
       res => {
-
         this.setData({
           planInfo: res.data
         });
@@ -122,7 +123,6 @@ Page({
         return err;
       }
     )
-
   },
  //评论列表
   getCommentListInfo: function(pageNo,override) {
@@ -174,7 +174,7 @@ Page({
   },
   //回复
   commitReply: function (e) {
-    //console.log('评论内容:',e.detail.value.comment)
+    //console.log('回复内容:',e.detail.value.reply)
     if (e.detail.value.reply.length == 0 || e.detail.value.reply.length > 20) {
       wx.showToast({
         title: '回复20字以内哦',
@@ -208,7 +208,6 @@ Page({
   onReady: function() {
 
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -220,14 +219,12 @@ Page({
   onHide: function() {
 
   },
-
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
 
   },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -238,7 +235,7 @@ Page({
         icon: 'loading',
         mask: true
       })
-      this.getPlanListInfo(1, true).then(() => {
+      this.getCommentListInfo(1, true).then(() => {
         wx.stopPullDownRefresh()
       })
     } else {
@@ -248,7 +245,6 @@ Page({
       })
     }
   },
-
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -263,12 +259,11 @@ Page({
         icon: 'loading',
         mask: true
       })
-      this.getPlanListInfo(this.data.pageNo)
+      this.getCommentListInfo(this.data.pageNo)
     } else {
       console.log('已经加载到底部了')
     }
   },
-
   /**
    * 用户点击右上角分享
    */
@@ -289,7 +284,14 @@ Page({
   },
   //添加评论
   commitComment: function(e){
-    console.log('评论内容:',this.data.comment)
+    //console.log('评论内容:',this.data.comment)
+    if (e.detail.value.comment.length == 0 || e.detail.value.comment.length > 20) {
+      wx.showToast({
+        title: '评论20字以内哦',
+        duration: 3000
+      })
+      return;
+    }
     let paramdata = {
       token: this.data.token,
       comment: this.data.comment,
@@ -313,9 +315,16 @@ Page({
   },
   //评论输入框输入取值
   onChange(e) {
-    console.log(e.detail);
     this.setData({ 
       comment: e.detail 
     });
-  }
+  },
+   /**
+     * 点击回复
+     */
+    /*bindReply: function(e){
+      this.setData({
+          releaseFocus: true
+      })
+  }*/
 })

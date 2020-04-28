@@ -1,208 +1,211 @@
 <view>
-  <view class="top-container flex-row">
-    <!-- 第一行 -->
-    <view class="tv">
-      <text class="topic">{{planInfo.title}}</text>
-      <view wx:if="{{planInfo.type==4}}">
-        <van-tag plain type="success">HOT</van-tag>
-      </view>
-    </view>
-    <!-- 第二行 -->
-    <view class="tv">
-      <text class="book-topic"> 推荐读物：{{planInfo.book}}</text>
-    </view>
-    <!-- 第三行 -->
-    <view class="top">
-      <image class="card-avatar" src="{{planInfo.avartarUrl}}"></image>
-      <text class="card-name">{{planInfo.nickName}}</text>
-      <view wx:if="{{planInfo.bookType=='计算机类'}}" class="btype">
-        <van-tag mark type="success">计算机类</van-tag>
-      </view>
-      <view wx:if="{{planInfo.bookType=='医学类'}}" class="btype">
-        <van-tag mark type="success">医学类</van-tag>
-      </view>
-      <view wx:if="{{planInfo.bookType=='工程类'}}" class="btype">
-        <van-tag mark type="success">工程类</van-tag>
-      </view>
-      <view wx:if="{{planInfo.bookType=='金融类'}}" class="btype">
-        <van-tag mark type="success">金融类</van-tag>
-      </view>
-      <view wx:if="{{planInfo.bookType=='管理类'}}" class="btype">
-        <van-tag mark type="success">管理类</van-tag>
-      </view>
-    </view>
-    <!-- 第四行 -->
-    <view class="time-cha">
-      <text class="card-time">发布于:{{planInfo.ctimeForShow}}</text>
-    </view>
-  </view>
+	<view class="top-container flex-row">
+		<!-- 第一行 -->
+		<view class="tv">
+			<text class="topic">{{planInfo.title}}</text>
+			<view wx:if="{{planInfo.type==4}}">
+				<van-tag plain type="success">HOT</van-tag>
+			</view>
+		</view>
+		<!-- 第二行 -->
+		<view class="tv">
+			<text class="book-topic"> 推荐读物：{{planInfo.book}}</text>
+		</view>
+		<!-- 第三行 -->
+		<view class="top">
+			<image class="card-avatar" src="{{planInfo.avartarUrl}}"></image>
+			<text class="card-name">{{planInfo.nickName}}</text>
+			<view wx:if="{{planInfo.bookType=='计算机类'}}" class="btype">
+				<van-tag mark type="success">计算机类</van-tag>
+			</view>
+			<view wx:if="{{planInfo.bookType=='医学类'}}" class="btype">
+				<van-tag mark type="success">医学类</van-tag>
+			</view>
+			<view wx:if="{{planInfo.bookType=='工程类'}}" class="btype">
+				<van-tag mark type="success">工程类</van-tag>
+			</view>
+			<view wx:if="{{planInfo.bookType=='金融类'}}" class="btype">
+				<van-tag mark type="success">金融类</van-tag>
+			</view>
+			<view wx:if="{{planInfo.bookType=='管理类'}}" class="btype">
+				<van-tag mark type="success">管理类</van-tag>
+			</view>
+		</view>
+		<!-- 第四行 -->
+		<view class="time-cha">
+			<text class="card-time">发布于:{{planInfo.ctimeForShow}}</text>
+		</view>
+	</view>
 
-  <view class="plan-intro">
-    <text class="intro-content">{{planInfo.content}}</text>
-  </view>
+	<view class="plan-intro">
+		<text class="intro-content">{{planInfo.content}}</text>
+	</view>
 
-  <view class="plan-meta" wx:if="{{!planInfo.youTag}}">
-    <view class="meta-info">
-      <view wx:for="{{planInfo.collectAvartarUrls}}">
-        <view wx:if="{{index<5}}">
-          <image class="guan-avatar" src="{{item}}"></image>
-        </view>
-      </view>
-      <view class="have">
-        <text class="other-meta">已有{{planInfo.collectNum}}人收藏</text>
-        <image src="/images/enter.png" class="more-user" bindtap="moreguan"></image>
-      </view>
-    </view>
-  </view>
-  <view class="plan-meta" wx:if="{{planInfo.youTag}}">
-    <view class="meta-info">
-      <view wx:for="{{planInfo.seeAvartarUrls}}">
-        <view wx:if="{{index<5}}">
-          <image class="guan-avatar" src="{{item}}"></image>
-        </view>
-      </view>
-      <view class="have">
-        <text class="other-meta">已有{{planInfo.seeNum}}人关注</text>
-        <image src="/images/enter.png" class="more-user" bindtap="moreguan"></image>
-      </view>
-    </view>
-  </view>
-  <view class="bottom">
-    <view wx:if="{{!planInfo.youTag}}" class="relation-show"> 
-      <view wx:if="{{planInfo.collectTag}}">
-        <view class="bt-look">
-          <image src="/images/icon-star-active.png" class="view"></image>
-          <text class="other-meta1">收藏</text>
-        </view>
-      </view>
-      <view wx:elif="{{!planInfo.collectTag}}">
-        <view class="bt-look" bindtap="collection">
-          <image src="/images/icon-star.png" class="view"></image>
-          <text class="other-meta">收藏</text>
-        </view>
-      </view>
-      <view wx:if="{{planInfo.zanTag}}">
-        <view class="bt-look">
-          <image src="/images/icon-good-active.png" class="view"></image>
-          <text class="other-meta1">点赞{{planInfo.zanNum}}</text>
-        </view>
-      </view>
-      <view wx:elif="{{!planInfo.zanTag}}">
-        <view class="bt-look" bindtap="zan">
-          <image src="/images/icon-good.png" class="view"></image>
-          <text class="other-meta">点赞{{planInfo.zanNum}}</text>
-        </view>
-      </view>
-    </view>
-    <view wx:if="{{planInfo.youTag}}" class="relation-show"> 
-      <view wx:if="{{planInfo.seeTag}}">
-        <view class="bt-look">
-          <image src="/images/icon-views-active.png" class="view"></image>
-          <text class="other-meta1">关注作者{{planInfo.seeNum}}</text>
-        </view>
-      </view>
-      <view wx:elif="{{!planInfo.seeTag}}">
-        <view class="bt-look" bindtap="guan">
-          <image src="/images/icon-views.png" class="view"></image>
-          <text class="other-meta">关注作者{{planInfo.seeNum}}</text>
-        </view>
-      </view>
-      <view wx:if="{{planInfo.collectTag}}">
-        <view class="bt-look">
-          <image src="/images/icon-star-active.png" class="view"></image>
-          <text class="other-meta1">收藏{{planInfo.collectNum}}</text>
-        </view>
-      </view>
-      <view wx:elif="{{!planInfo.collectTag}}">
-        <view class="bt-look" bindtap="collection">
-          <image src="/images/icon-star.png" class="view"></image>
-          <text class="other-meta">收藏{{planInfo.collectNum}}</text>
-        </view>
-      </view>
-      <view wx:if="{{planInfo.zanTag}}">
-        <view class="bt-look">
-          <image src="/images/icon-good-active.png" class="view"></image>
-          <text class="other-meta1">点赞{{planInfo.zanNum}}</text>
-        </view>
-      </view>
-      <view wx:elif="{{!planInfo.zanTag}}">
-        <view class="bt-look" bindtap="zan">
-          <image src="/images/icon-good.png" class="view"></image>
-          <text class="other-meta">点赞{{planInfo.zanNum}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
+	<view class="plan-meta" wx:if="{{!planInfo.youTag}}">
+		<view class="meta-info">
+			<view wx:for="{{planInfo.collectAvartarUrls}}">
+				<view wx:if="{{index<5}}">
+					<image class="guan-avatar" src="{{item}}"></image>
+				</view>
+			</view>
+			<view class="have">
+				<text class="other-meta">已有{{planInfo.collectNum}}人收藏</text>
+				<image src="/images/enter.png" class="more-user" bindtap="moreguan"></image>
+			</view>
+		</view>
+	</view>
+	<view class="plan-meta" wx:if="{{planInfo.youTag}}">
+		<view class="meta-info">
+			<view wx:for="{{planInfo.seeAvartarUrls}}">
+				<view wx:if="{{index<5}}">
+					<image class="guan-avatar" src="{{item}}"></image>
+				</view>
+			</view>
+			<view class="have">
+				<text class="other-meta">已有{{planInfo.seeNum}}人关注</text>
+				<image src="/images/enter.png" class="more-user" bindtap="moreguan"></image>
+			</view>
+		</view>
+	</view>
+	<view class="bottom">
+		<view wx:if="{{!planInfo.youTag}}" class="relation-show">
+			<view wx:if="{{planInfo.collectTag}}">
+				<view class="bt-look">
+					<image src="/images/icon-star-active.png" class="view"></image>
+					<text class="other-meta1">收藏</text>
+				</view>
+			</view>
+			<view wx:elif="{{!planInfo.collectTag}}">
+				<view class="bt-look" bindtap="collection">
+					<image src="/images/icon-star.png" class="view"></image>
+					<text class="other-meta">收藏</text>
+				</view>
+			</view>
+			<view wx:if="{{planInfo.zanTag}}">
+				<view class="bt-look">
+					<image src="/images/icon-good-active.png" class="view"></image>
+					<text class="other-meta1">点赞{{planInfo.zanNum}}</text>
+				</view>
+			</view>
+			<view wx:elif="{{!planInfo.zanTag}}">
+				<view class="bt-look" bindtap="zan">
+					<image src="/images/icon-good.png" class="view"></image>
+					<text class="other-meta">点赞{{planInfo.zanNum}}</text>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{planInfo.youTag}}" class="relation-show">
+			<view wx:if="{{planInfo.seeTag}}">
+				<view class="bt-look">
+					<image src="/images/icon-views-active.png" class="view"></image>
+					<text class="other-meta1">关注作者{{planInfo.seeNum}}</text>
+				</view>
+			</view>
+			<view wx:elif="{{!planInfo.seeTag}}">
+				<view class="bt-look" bindtap="guan">
+					<image src="/images/icon-views.png" class="view"></image>
+					<text class="other-meta">关注作者{{planInfo.seeNum}}</text>
+				</view>
+			</view>
+			<view wx:if="{{planInfo.collectTag}}">
+				<view class="bt-look">
+					<image src="/images/icon-star-active.png" class="view"></image>
+					<text class="other-meta1">收藏{{planInfo.collectNum}}</text>
+				</view>
+			</view>
+			<view wx:elif="{{!planInfo.collectTag}}">
+				<view class="bt-look" bindtap="collection">
+					<image src="/images/icon-star.png" class="view"></image>
+					<text class="other-meta">收藏{{planInfo.collectNum}}</text>
+				</view>
+			</view>
+			<view wx:if="{{planInfo.zanTag}}">
+				<view class="bt-look">
+					<image src="/images/icon-good-active.png" class="view"></image>
+					<text class="other-meta1">点赞{{planInfo.zanNum}}</text>
+				</view>
+			</view>
+			<view wx:elif="{{!planInfo.zanTag}}">
+				<view class="bt-look" bindtap="zan">
+					<image src="/images/icon-good.png" class="view"></image>
+					<text class="other-meta">点赞{{planInfo.zanNum}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
 
+<van-button plain round open-type="share" type="info" class="share-type" icon="share" size="large">分享给好友共同进步</van-button>
 <van-cell-group>
-  <van-field value="{{comment}}" bind:change="onChange" left-icon="chat" type="text" placeholder="欢迎发表你的评论" use-button-slot>
-  <van-button slot="button" size="mini" type="primary" bind:confirm="commitComment">发送</van-button>
-  </van-field>
+	<van-field value="{{comment}}" bind:change="onChange" left-icon="chat" type="text" placeholder="欢迎发表你的评论" use-button-slot>
+		<van-button slot="button" size="mini" type="primary" bind:click="commitComment">发送</van-button>
+	</van-field>
 </van-cell-group>
-<!-- <form bindsubmit="commitComment" bindreset="">
-  <textarea name="comment" value="{{comment}}" placeholder="点击输入评论内容"/>
-  <button formType="submit" >发布</button>
-</form> -->
-<button open-type="share">分享给好友共同进步</button>
+
 <view class="data-end">
-  <text>评论区</text>
+	<text class="topic">评论区</text>
 </view>
 <view wx:if="{{commentTotal==0}}">
-  <view class="data-end">暂无评论</view>
+  <image src="/images/book.png"/>
+	<view class="data-end">-----暂无评论-----</view>
 </view>
 <view wx:elif="{{commentTotal>0}}">
-  <view wx:for="{{commentList}}">
-    
-    <view class="square-container">
+	<view wx:for="{{commentList}}">
 
-      <view class="top-container1">
-        <!-- 第一行 -->
-        <view>
-          <view wx:if="{{item.author==true}}">
-            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
-            <text class="card-name1">{{item.nickName}}</text>
-            <text class="card-owner">[楼主]</text>
-          </view>
-          <view wx:if="{{item.author==false}}">
-            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
-            <text class="card-name1">{{item.nickName}}</text>
-          </view>
-        </view>
-        <!-- 第二行 -->
-        <view class="top-two">
-          <text class="card-time1">{{item.commentCtime}}</text>
-        </view>
-        <!-- 第三行 -->
-        <view class="top-two">
-          <text class="message-text">{{item.comment}}</text>
-        </view>
-      </view>
-      
-      <view class="reply-square">
-        <view wx:for="{{item.replyList}}"> 
-          <view wx:if="{{item.author==true}}">
-            <text class="card-owner">[楼主]</text>
-            <text class="card-name1">{{item.nickName}}:</text>
-            <text class="card-reply-comment">{{item.comment}}</text>
-          </view>
-          <view wx:if="{{item.author==false}}">
-            <text class="card-name1">{{item.nickName}}:</text>
-            <text class="card-reply-comment">{{item.comment}}</text>
-          </view>
-        </view>
-      </view>
-      <view class="bottom-square">
+		<view class="square-container">
+
+			<view class="top-container1">
+				<!-- 第一行 -->
+				<view>
+					<view wx:if="{{item.author==true}}">
+						<image class="card-avatar" src="{{item.avartarUrl}}"></image>
+						<text class="card-name1">{{item.nickName}}</text>
+						<text class="card-owner">[楼主]</text>
+					</view>
+					<view wx:if="{{item.author==false}}">
+						<image class="card-avatar" src="{{item.avartarUrl}}"></image>
+						<text class="card-name1">{{item.nickName}}</text>
+					</view>
+				</view>
+				<!-- 第二行 -->
+				<view class="top-two">
+					<text class="card-time1">{{item.commentCtime}}</text>
+				</view>
+				<!-- 第三行 -->
+				<view class="top-two">
+					<text class="message-text">{{item.comment}}</text>
+				</view>
+			</view>
+
+			<view class="reply-square">
+				<view wx:for="{{item.replyList}}">
+					<view wx:if="{{item.author==true}}">
+						<text class="card-owner">[楼主]</text>
+						<text class="card-name1">{{item.nickName}}:</text>
+						<text class="card-reply-comment">{{item.comment}}</text>
+					</view>
+					<view wx:if="{{item.author==false}}">
+						<text class="card-name1">{{item.nickName}}:</text>
+						<text class="card-reply-comment">{{item.comment}}</text>
+					</view>
+				</view>
+			</view>
+			<!-- <view class="talk" bindtap="bindReply">回复</view>
+			<view class="release" hidden="{{!releaseFocus}}">
+				<textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复{{item.id}}"></textarea>
+				<view class="submit">发送</view>
+			</view> -->
+			<view class="bottom-square">
         <form bindsubmit="commitReply" bindreset="">
           <input name="id" value="{{item.id}}" hidden="true"></input>
           <input name="reply" value="{{reply}}" placeholder="点击输入回复内容"/>
-          <button formType="submit" >回复</button>
+          <van-button formType="submit" size="mini">回复</van-button>
         </form>
       </view>
 
-    </view>
-  </view>
-  <view wx:if="{{noMoreData}}" class="data-end">
-    -----已展示全部评论内容-----
-  </view>
+		</view>
+	</view>
+	<view wx:if="{{noMoreData}}" class="data-end">
+		-----已展示全部评论内容-----
+	</view>
 </view>

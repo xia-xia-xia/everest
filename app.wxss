@@ -10,7 +10,7 @@
 } 
 .data-end{
   text-align: center;
-  margin-top: 10rpx;
+  margin: 20rpx;
 }
 .show-empty{
   margin: 350rpx
