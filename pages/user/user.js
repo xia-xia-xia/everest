@@ -59,7 +59,7 @@ Page({
    */
   star: function() {
     wx.navigateTo({
-      url: '/pages/personal/personal?star=1'
+      url: '/pages/personal/personal?collect=1'
     })
   },
   /**

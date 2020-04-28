@@ -16,13 +16,13 @@ Page({
     this.setData({
       token: app.globalData.token
     });
-    this.getPlanListInfo(options.type, options.upvote);
+    this.getPlanListInfo(options.type, options.upvote,options.collect);
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function(options) {},
-  getPlanListInfo: function(type) {
+  getPlanListInfo: function(type,collect) {
 
     var paramdata;
     if (null != type) {
@@ -30,9 +30,16 @@ Page({
         token: this.data.token,
         source: "personal",
         types: [type],
+        collect: collect
       }
     }
-  
+    if (null != collect) {
+      paramdata = {
+        token: this.data.token,
+        source: "personal",
+        collect: collect,
+      }
+    }
     console.log("paramdata", paramdata);
     return util.requestApi(`${app.globalReqUrl}/plan/apple/listPlan`, paramdata).then(
       res => {
