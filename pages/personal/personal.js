@@ -16,7 +16,7 @@ Page({
     this.setData({
       token: app.globalData.token
     });
-    this.getPlanListInfo(options.type, options.upvote,options.collect);
+    this.getPlanListInfo(options.type,options.collect);
   },
   /**
    * 生命周期函数--监听页面显示
