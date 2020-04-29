@@ -1,0 +1,18 @@
+<!--pages/about/about.wxml-->
+<view class="container flex-column">
+  <view class="top-container flex-rest-height">
+    <view class="logo">
+      <image src="/images/logo.png" class="logo-image"></image>
+    </view>
+    <view class="name">
+      <text>研书</text>
+    </view>
+    <view class="about">
+      <text class="about-text">GitHub: xia-xia-xia/everest</text>
+      <text class="about-text">Email: 2366051620@qq.com</text>
+    </view>
+  </view>
+  <view class="bottom-container">
+    <text>Copyright © 2020 XiaZiFang.</text>
+  </view>
+</view>

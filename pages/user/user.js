@@ -67,7 +67,15 @@ Page({
    */
   see: function() {
     wx.navigateTo({
-      url: '/pages/follow/follow'
+      url: '/pages/follow/follow?uid=' + app.globalData.userInfo.id
+    })
+  },
+  /**
+   * 我的收藏
+   */
+  about: function() {
+    wx.navigateTo({
+      url: '/pages/about/about'
     })
   },
 });

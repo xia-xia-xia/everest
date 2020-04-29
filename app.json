@@ -9,7 +9,8 @@
     "pages/detail/detail",
     "pages/create/create",
     "pages/personal/personal",
-    "pages/follow/follow"
+    "pages/follow/follow",
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
