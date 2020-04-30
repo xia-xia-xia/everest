@@ -1,7 +1,7 @@
 <!--pages/follow/follow.wxml-->
 <view>
 	<view wx:for="{{relationListInfo}}">
-		<view class="square-container" bindtap="toPlanList">
+		<view class="square-container" bindtap="toPlanList" data-uid="{{item.planUserId}}">
 			<view class="follow-container">
 				<view>
 					<image class="card-avatar" src="{{item.avartarUrl}}"></image>

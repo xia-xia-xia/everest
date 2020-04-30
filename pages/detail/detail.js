@@ -116,6 +116,7 @@ Page({
         this.setData({
           planInfo: res.data
         });
+        console.log("seePeopleTag:",res.data)
         return res.data;
       },
       err => {

@@ -95,7 +95,7 @@
 			</view>
 		</view>
 		<view wx:if="{{planInfo.youTag}}" class="relation-show">
-			<view wx:if="{{planInfo.seeTag}}">
+			<view wx:if="{{planInfo.seeTag || planInfo.seePeopleTag}}">
 				<view class="bt-look">
 					<image src="/images/icon-views-active.png" class="view"></image>
 					<text class="other-meta1">关注作者{{planInfo.seeNum}}</text>
