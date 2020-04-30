@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    uid:null,
-
+    token: null,
+    relationListInfo: null
   },
   //查看所关注作者的所有感悟
   toPlanList:function(){
@@ -20,55 +20,25 @@ Page({
   onLoad: function (options) {
     this.setData({
       token: app.globalData.token,
-      uid: options.uid,
     })
-    this.getRelationListInfo(1,true);
+    this.getRelationListInfo();
   },
   //关注列表
-  getRelationListInfo: function(pageNo,override) {
-    /*if (this.data.token == null) {
-      this.setData({
-        token: wx.getStorageSync('token'),
-      });
-    }*/
-    let that = this
-    pageNo: pageNo || that.data.pageNo
+  getRelationListInfo: function() {
     let paramdata = {
-      pageNo: pageNo || that.data.pageNo,
-      pageSize: that.data.pageSize,
-      token: this.data.token,
-      userId:this.data.uid
+      token: this.data.token
     }
-    return util.requestApi(`${app.globalReqUrl}/relaion/tomatoes/listRelation`, paramdata).then(
+    return util.requestApi(`${app.globalReqUrl}/relation/tomatoes/relationList`, paramdata).then(
       res => {
-        if (res.data.list.length < that.data.pageSize) {
-          this.setData({
-            noMoreData: true
-          })
-        } else {
-          this.setData({
-            noMoreData: false
-          })
-        }
         this.setData({
-          relationTotal: res.data.total,
-          relationList:override?res.data.list: this.data.relationList.concat(res.data.list),
+          relationListInfo: res.data
         });
-        console.log("relationLists：", res.data.list)
-        if (this.data.relationList.length >= this.data.relationTotal){
-          this.setData({
-            noMoreData: true
-          })
-        }else{
-          this.setData({
-            noMoreData: false
-          })
-        }
+        console.log("relationListInfo:",res.data)
         return res.data;
       },
       err => {
         console.log('error', err)
-        return err
+        return err;
       }
     )
   },

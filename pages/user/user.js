@@ -67,7 +67,7 @@ Page({
    */
   see: function() {
     wx.navigateTo({
-      url: '/pages/follow/follow?uid=' + app.globalData.userInfo.id
+      url: '/pages/follow/follow'
     })
   },
   /**

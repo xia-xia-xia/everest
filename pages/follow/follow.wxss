@@ -1,21 +1,26 @@
 /* pages/follow/follow.wxss */
 .square-container {
-  background-color: rgb(233, 227, 227);
-  margin: 15rpx;
+  background-color: rgb(248, 242, 242);
+  margin: 20rpx;
   border-radius: 10rpx;
 }
 .follow-container {
+  display: flex;
   padding: 10rpx;
+  justify-content: space-between;
 }
 .card-avatar {
   width: 80rpx;
   height: 80rpx;
   border-radius:100%;
-  margin-right: 12rpx
+  margin-right: 12rpx;
+  box-shadow: darkslategray;
 }
 .card-name {
-  color: #00bfff;
   font-weight: bold;
-  font-size: 40rpx;
+  font-size: 30rpx;
   margin: 8rpx;
+}
+.tap{
+  margin-top: 15rpx;
 }
