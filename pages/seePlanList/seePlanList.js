@@ -25,7 +25,7 @@ Page({
   getPlanListInfo: function(){
     let paramdata = {
       token: this.data.token,
-      userId: this.data.uid
+      seeUserId: this.data.uid
     }
     console.log("paramdata:",paramdata)
     return util.requestApi(`${app.globalReqUrl}/plan/apple/listPlan`, paramdata).then(
