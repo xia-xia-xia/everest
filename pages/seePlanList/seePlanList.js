@@ -1,5 +1,5 @@
-// pages/follow/follow.js
-const app = getApp();
+// pages/seePlanList/seePlanList.js
+const app = getApp()
 var util = require("../../utils/util.js")
 Page({
 
@@ -7,43 +7,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    token: null,
-    relationListInfo: null
+    uid:null,
+    token:null,
+    planList:null
   },
-  //查看所关注作者的所有感悟
-  toPlanList:function(e){
-    console.log("uid:",e.currentTarget.dataset.uid)
-    wx.navigateTo({
-      url: '/pages/seePlanList/seePlanList?uid=' + e.currentTarget.dataset.uid
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.setData({
       token: app.globalData.token,
-    })
-    this.getRelationListInfo();
+      uid:options.uid
+    });
+    this.getPlanListInfo();
   },
-  //关注列表
-  getRelationListInfo: function() {
+  getPlanListInfo: function(){
     let paramdata = {
-      token: this.data.token
+      token: this.data.token,
+      userId: this.data.uid
     }
-    return util.requestApi(`${app.globalReqUrl}/relation/tomatoes/relationList`, paramdata).then(
+    console.log("paramdata:",paramdata)
+    return util.requestApi(`${app.globalReqUrl}/plan/apple/listPlan`, paramdata).then(
       res => {
         this.setData({
-          relationListInfo: res.data
+          total: res.data.total,
+          planList: res.data.list
         });
-        console.log("relationListInfo:",res.data)
         return res.data;
       },
       err => {
         console.log('error', err)
-        return err;
+        return err
       }
     )
+  },
+  clickPlan: function(e) {
+    wx.navigateTo({
+      url: '/pages/detail/detail?pid=' + e.currentTarget.dataset.pid
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

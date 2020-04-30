@@ -1,0 +1,50 @@
+<!--pages/seePlanList/seePlanList.wxml-->
+<view>
+  <view wx:if="{{total==0}}">
+    <view class="show-empty">空空如也～</view>
+  </view>
+  <view wx:elif="{{total>0}}">
+    <view wx:for="{{planList}}">
+      <view class="square-container" bindtap="clickPlan" data-pid='{{item.id}}'>
+        <view class="top-container flex-row">
+          <view class="title-container">
+            <text class="card-title">{{item.title}}</text>
+            <van-tag wx:if="{{item.type==4}}" plain type="success">HOT</van-tag>
+          </view>
+          <view>
+            <image class="card-avatar" src="{{item.avartarUrl}}"></image>
+            <text class="card-name">{{item.nickName}}</text>
+          </view>
+          <view class="top-three">
+            <text class="card-time">发布于:{{item.ctime}}</text>
+            <view wx:if="{{item.bookType=='计算机类'}}">
+              <van-tag mark type="success">计算机类</van-tag>
+            </view>
+            <view wx:if="{{item.bookType=='医学类'}}" class="btype">
+              <van-tag mark type="success">医学类</van-tag>
+            </view>
+            <view wx:if="{{item.bookType=='工程类'}}" class="btype">
+              <van-tag mark type="success">工程类</van-tag>
+            </view>
+            <view wx:if="{{item.bookType=='金融类'}}" class="btype">
+              <van-tag mark type="success">金融类</van-tag>
+            </view>
+            <view wx:if="{{item.bookType=='管理类'}}" class="btype">
+              <van-tag mark type="success">管理类</van-tag>
+            </view>
+          </view>
+        </view>
+
+        <view class="middle-container flex-column">
+          <text class="message-text">{{item.content}}</text>
+        </view>
+      
+        <view class="bottom-container">
+          <text wx:if="{{item.type==4}}" class="bottom-tool-text">关注作者：{{item.seeNum}} </text>
+          <text class="bottom-tool-text">收藏：{{item.collectNum}}  </text>
+          <text class="bottom-tool-text">点赞：{{item.zanNum}}  </text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
